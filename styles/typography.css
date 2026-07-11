@@ -1,0 +1,56 @@
+/**
+ * Typography tokens — calm, readable hierarchy with fluid scaling.
+ * Consumed by Heading and Text primitive components.
+ */
+
+:root {
+  --font-family-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Display — product hero only, restrained size */
+  --font-size-display: clamp(1.75rem, 3.5vw, 2.125rem);
+  --line-height-display: 1.15;
+  --font-weight-display: 600;
+  --letter-spacing-display: -0.025em;
+
+  /* Heading — section headlines */
+  --font-size-heading: clamp(1.375rem, 2.5vw, 1.625rem);
+  --line-height-heading: 1.25;
+  --font-weight-heading: 600;
+  --letter-spacing-heading: -0.02em;
+
+  /* Title — card titles and sub-sections */
+  --font-size-title: clamp(1.0625rem, 1.5vw, 1.1875rem);
+  --line-height-title: 1.35;
+  --font-weight-title: 600;
+  --letter-spacing-title: -0.012em;
+
+  /* Subtitle — supporting headlines and hero subcopy */
+  --font-size-subtitle: clamp(1rem, 1.25vw, 1.125rem);
+  --line-height-subtitle: 1.5;
+  --font-weight-subtitle: 400;
+  --letter-spacing-subtitle: -0.005em;
+
+  /* Body — default reading text */
+  --font-size-body: 1rem;
+  --line-height-body: 1.65;
+  --font-weight-body: 400;
+  --letter-spacing-body: 0;
+
+  /* Caption — secondary information */
+  --font-size-caption: 0.875rem;
+  --line-height-caption: 1.55;
+  --font-weight-caption: 400;
+  --letter-spacing-caption: 0;
+
+  /* Label — UI labels and metadata */
+  --font-size-label: 0.6875rem;
+  --line-height-label: 1.45;
+  --font-weight-label: 500;
+  --letter-spacing-label: 0.04em;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --font-size-body: 1.0625rem;
+  }
+}

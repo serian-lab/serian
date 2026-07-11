@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Demo video poster placeholder">
+  <rect width="1280" height="720" fill="#171717"/>
+  <circle cx="640" cy="360" r="64" fill="none" stroke="#fafafa" stroke-width="4"/>
+  <polygon points="620,320 620,400 700,360" fill="#fafafa"/>
+  <text x="640" y="520" text-anchor="middle" fill="#a3a3a3" font-family="system-ui,sans-serif" font-size="20">Product Demo</text>
+</svg>

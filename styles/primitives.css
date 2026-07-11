@@ -1,0 +1,221 @@
+/**
+ * Primitive UI styles — semantic classes consumed by components/ui/*.
+ * All values reference design tokens; no hardcoded visual constants.
+ */
+
+/* ── Container ── */
+.ui-container {
+  width: 100%;
+  max-width: var(--layout-page-max-width);
+  margin-inline: auto;
+  padding-inline: var(--layout-container-padding-x);
+}
+
+.ui-container--content {
+  max-width: var(--layout-content-width);
+}
+
+.ui-container--reading {
+  max-width: var(--layout-reading-width);
+}
+
+/* ── Section ── */
+.ui-section {
+  padding-block: var(--layout-section-spacing-y);
+}
+
+.product-section.ui-section {
+  padding-block: var(--layout-section-spacing-y);
+}
+
+.product-section--hero.ui-section {
+  padding-block-start: var(--spacing-xl);
+  padding-block-end: var(--layout-section-spacing-y-relaxed);
+}
+
+.product-section--narrative.ui-section {
+  padding-block: var(--layout-section-spacing-y-tight);
+}
+
+.product-section--narrative.ui-section:first-of-type {
+  padding-block-start: var(--layout-section-spacing-y);
+}
+
+.product-section--purchase.ui-section {
+  padding-block-start: var(--layout-section-spacing-y-relaxed);
+  padding-block-end: var(--layout-section-spacing-y);
+}
+
+/* ── Heading typography variants ── */
+.ui-heading {
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.ui-heading--display {
+  font-size: var(--font-size-display);
+  line-height: var(--line-height-display);
+  font-weight: var(--font-weight-display);
+  letter-spacing: var(--letter-spacing-display);
+}
+
+.ui-heading--heading {
+  font-size: var(--font-size-heading);
+  line-height: var(--line-height-heading);
+  font-weight: var(--font-weight-heading);
+  letter-spacing: var(--letter-spacing-heading);
+}
+
+.ui-heading--title {
+  font-size: var(--font-size-title);
+  line-height: var(--line-height-title);
+  font-weight: var(--font-weight-title);
+  letter-spacing: var(--letter-spacing-title);
+}
+
+.ui-heading--subtitle {
+  font-size: var(--font-size-subtitle);
+  line-height: var(--line-height-subtitle);
+  font-weight: var(--font-weight-subtitle);
+  letter-spacing: var(--letter-spacing-subtitle);
+}
+
+/* ── Text typography variants ── */
+.ui-text {
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.ui-text--body {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-body);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+.ui-text--caption {
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  font-weight: var(--font-weight-caption);
+  letter-spacing: var(--letter-spacing-caption);
+  color: var(--color-text-secondary);
+}
+
+.ui-text--label {
+  font-size: var(--font-size-label);
+  line-height: var(--line-height-label);
+  font-weight: var(--font-weight-label);
+  letter-spacing: var(--letter-spacing-label);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+/* ── Button ── */
+/* ── Card ── */
+.ui-card {
+  padding: var(--layout-product-item-padding);
+  background-color: var(--color-surface-elevated);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition:
+    box-shadow var(--duration-fast),
+    border-color var(--duration-fast);
+}
+
+.ui-card--flat {
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.ui-card--interactive:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-border-strong);
+}
+
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--layout-touch-target-min);
+  font-family: inherit;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-label);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-label);
+  color: var(--color-interactive-text);
+  background-color: var(--color-interactive-bg);
+  border: var(--border-width-default) solid transparent;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md) var(--spacing-xl);
+  cursor: pointer;
+  transition: background-color var(--duration-fast);
+}
+
+.ui-button--full-width {
+  width: 100%;
+}
+
+.ui-button:hover {
+  background-color: var(--color-interactive-bg-hover);
+}
+
+.ui-button:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}
+
+/* ── Stack ── */
+.ui-stack {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ui-stack--vertical {
+  flex-direction: column;
+}
+
+.ui-stack--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.ui-stack--gap-xs {
+  gap: var(--spacing-xs);
+}
+
+.ui-stack--gap-sm {
+  gap: var(--spacing-sm);
+}
+
+.ui-stack--gap-md {
+  gap: var(--spacing-md);
+}
+
+.ui-stack--gap-lg {
+  gap: var(--spacing-lg);
+}
+
+.ui-stack--gap-xl {
+  gap: var(--spacing-xl);
+}
+
+.ui-stack--gap-2xl {
+  gap: var(--spacing-2xl);
+}
+
+/* Reset list item defaults inside stacks */
+.ui-stack > li {
+  list-style: none;
+}
+
+/* ── Links inside primitives ── */
+.ui-heading a,
+.ui-text a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: var(--spacing-xs);
+}

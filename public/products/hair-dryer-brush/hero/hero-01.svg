@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="640" viewBox="0 0 800 640" role="img" aria-label="Serian Hot Air Brush product photo placeholder">
+  <rect width="800" height="640" fill="#f7f7f7"/>
+  <rect x="260" y="80" width="280" height="480" rx="140" fill="#ececec" stroke="#d4d4d4" stroke-width="2"/>
+  <rect x="300" y="120" width="200" height="360" rx="100" fill="#e0e0e0"/>
+  <circle cx="400" cy="560" r="36" fill="#d4d4d4"/>
+  <rect x="380" y="40" width="40" height="60" rx="8" fill="#d4d4d4"/>
+  <text x="400" y="620" text-anchor="middle" fill="#a3a3a3" font-family="system-ui,sans-serif" font-size="13">Serian Hot Air Brush</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1280" viewBox="0 0 720 1280" role="img" aria-label="UGC before after poster">
+  <rect width="720" height="1280" fill="#262626"/>
+  <rect x="60" y="400" width="280" height="400" rx="8" fill="#404040"/>
+  <rect x="380" y="400" width="280" height="400" rx="8" fill="#525252"/>
+  <text x="360" y="880" text-anchor="middle" fill="#d4d4d4" font-family="system-ui,sans-serif" font-size="16">Before / After</text>
+</svg>

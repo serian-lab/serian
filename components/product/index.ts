@@ -1,0 +1,10 @@
+export { BenefitsSection } from "./BenefitsSection";
+export { ComparisonSection } from "./ComparisonSection";
+export { FaqSection } from "./FaqSection";
+export { FeaturesSection } from "./FeaturesSection";
+export { HeroSection } from "./HeroSection";
+export { ProblemSection } from "./ProblemSection";
+export { ProductPage } from "./ProductPage";
+export { PurchaseSection } from "./PurchaseSection";
+export { ReviewsSection } from "./ReviewsSection";
+export { SolutionSection } from "./SolutionSection";

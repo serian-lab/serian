@@ -1,0 +1,579 @@
+---
+alwaysApply: true
+---
+
+Version: v1.0
+Author: Peng & AI
+Purpose: Build a scalable, high-converting DTC Landing Page System.
+
+---
+
+# 0. Golden Rule
+
+Every development decision must follow these principles:
+
+- Simpler is better.
+- Maintainability is more important than cleverness.
+- Conversion is more important than technology.
+- Build for the next real customer, not for imaginary future requirements.
+- Never over-engineer.
+
+Our goal is **not to build an e-commerce platform.**
+
+Our goal is to build **a sales machine**.
+
+---
+
+# 1. Project Philosophy
+
+This project is NOT:
+
+- Shopify Clone
+- Amazon Clone
+- Full Shopping Mall
+- Enterprise Management System
+
+This project IS:
+
+A lightweight DTC website focused on product conversion.
+
+Core business flow:
+
+TikTok
+↓
+
+Landing Page
+↓
+
+PayPal Checkout
+↓
+
+Successful Payment
+
+↓
+
+Customer Confirmation
+
+Every feature must improve at least one of:
+
+- Trust
+- Conversion
+- User Experience
+- Performance
+
+Otherwise, do not build it.
+
+---
+
+# 2. Development Philosophy
+
+Business first.
+
+Technology second.
+
+Every new feature should answer:
+
+"Will this increase conversions?"
+
+If not, postpone it.
+
+Do not build features simply because they are technically interesting.
+
+---
+
+# 3. Technical Stack
+
+Frontend
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+
+Deployment
+
+- GitHub
+- Vercel
+
+Payment
+
+- PayPal Checkout
+
+Future
+
+- Supabase (Database)
+- Stripe (Optional)
+
+No unnecessary technologies.
+
+Avoid introducing additional frameworks unless absolutely necessary.
+
+---
+
+# 4. Project Structure
+
+Standard directory structure:
+
+app/
+
+components/
+
+components/ui/
+
+components/layout/
+
+components/product/
+
+lib/
+
+hooks/
+
+styles/
+
+public/
+
+content/
+
+types/
+
+Do not create random folders.
+
+Maintain consistency.
+
+---
+
+# 5. Component Design Rules
+
+Each component has ONE responsibility.
+
+Good examples:
+
+Hero.tsx
+
+FeatureGrid.tsx
+
+ReviewSection.tsx
+
+FAQ.tsx
+
+CheckoutButton.tsx
+
+Footer.tsx
+
+Bad example:
+
+LandingPage.tsx (3000+ lines)
+
+Components should be:
+
+- Reusable
+- Independent
+- Easy to maintain
+
+---
+
+# 6. UI Design Principles
+
+Visual style:
+
+Apple
+
+Tesla
+
+Notion
+
+Raycast
+
+Linear
+
+Keywords:
+
+Minimal
+
+Premium
+
+Elegant
+
+Calm
+
+Clean
+
+Timeless
+
+Avoid:
+
+Over decoration
+
+Crypto style
+
+Cyberpunk
+
+Heavy gradients
+
+Large glowing effects
+
+Colorful interfaces
+
+Visual consistency is more important than creativity.
+
+---
+
+# 7. Performance First
+
+Performance has higher priority than animation.
+
+Prefer:
+
+Static Rendering
+
+Server Components
+
+Image Optimization
+
+Lazy Loading
+
+Minimal JavaScript
+
+Avoid unnecessary client-side rendering.
+
+---
+
+# 8. Cursor Collaboration Rules
+
+Cursor is our engineering assistant.
+
+Cursor should NEVER:
+
+- Rewrite the whole project.
+- Refactor unrelated files.
+- Introduce unnecessary dependencies.
+- Modify project architecture without explanation.
+
+Cursor SHOULD:
+
+- Solve one task at a time.
+- Explain why changes are needed.
+- Keep existing structure.
+- Reuse existing components.
+
+Development principle:
+
+Small changes.
+
+Frequent testing.
+
+Incremental progress.
+
+---
+
+# 9. Git Rules
+
+Commit messages:
+
+feat:
+
+fix:
+
+style:
+
+docs:
+
+refactor:
+
+Avoid:
+
+update
+
+modify
+
+change
+
+Always write meaningful commit messages.
+
+---
+
+# 10. Landing Page Standard
+
+Every product page follows the same structure:
+
+Hero
+
+↓
+
+Problem
+
+↓
+
+Solution
+
+↓
+
+Features
+
+↓
+
+Benefits
+
+↓
+
+Comparison
+
+↓
+
+Reviews
+
+↓
+
+FAQ
+
+↓
+
+Checkout
+
+↓
+
+Footer
+
+The framework remains unchanged.
+
+Only the product content changes.
+
+---
+
+# 11. Trust System
+
+Every product page should contain:
+
+Contact
+
+Privacy Policy
+
+Refund Policy
+
+Shipping Policy
+
+Terms of Service
+
+Customers buy trust before they buy products.
+
+---
+
+# 12. Payment Rules
+
+Current payment provider:
+
+PayPal only.
+
+Do NOT build:
+
+Shopping cart
+
+Order system
+
+User accounts
+
+Inventory management
+
+These belong to future versions.
+
+The first goal:
+
+One successful payment.
+
+---
+
+# 13. Development Workflow
+
+Every new product follows the same workflow:
+
+Product Research
+
+↓
+
+Landing Page
+
+↓
+
+Content Creation
+
+↓
+
+Deployment
+
+↓
+
+TikTok Publishing
+
+↓
+
+Traffic
+
+↓
+
+Optimization
+
+↓
+
+Iteration
+
+Never skip steps.
+
+---
+
+# 14. Scalability Principles
+
+Today's product:
+
+Hair Dryer Brush
+
+Tomorrow:
+
+Pet Steam Brush
+
+Next month:
+
+Desk Accessories
+
+The system should support unlimited products.
+
+Only product content changes.
+
+Architecture stays the same.
+
+---
+
+# 15. AI Collaboration Rules
+
+AI should always prioritize:
+
+Maintainability
+
+↓
+
+Readability
+
+↓
+
+Reusability
+
+↓
+
+Performance
+
+↓
+
+Visual consistency
+
+↓
+
+Conversion
+
+Never generate code simply to demonstrate technical ability.
+
+Generate code that a real startup would maintain.
+
+---
+
+# 16. Coding Style
+
+Write clean code.
+
+Prefer composition over duplication.
+
+Avoid magic numbers.
+
+Use descriptive variable names.
+
+Keep functions short.
+
+Keep components focused.
+
+Readable code is better than clever code.
+
+---
+
+# 17. Future Roadmap
+
+Phase 1
+
+- Landing Pages
+- PayPal
+- First Sale
+
+Phase 2
+
+- SEO
+- Blog
+- Analytics
+- Email
+
+Phase 3
+
+- Database
+- Stripe
+- CRM
+- Automation
+
+Phase 4
+
+- Brand Expansion
+- Multi-product Operations
+- Team Collaboration
+
+Always complete the current phase before starting the next.
+
+---
+
+# 18. Development Philosophy
+
+-Every milestone must validate one architectural layer before introducing visual complexity.
+
+---
+
+# Final Mission
+
+We are not building webpages.
+
+We are building a repeatable sales operating system.
+
+Every decision should move us closer to:
+
+A faster launch.
+
+Higher conversion.
+
+Better user experience.
+
+Lower maintenance cost.
+
+More successful products.
+
+Build less.
+
+Sell more.
+
+
+## Project Documentation
+
+Before making architecture or implementation decisions, always consult the documentation under `/docs`.
+
+The `/docs` directory is the single source of truth for:
+
+- Project Structure
+- Brand Identity
+- UI Design System
+- Architecture
+- Landing Page Template
+- Development Roadmap
+
+
+## Documentation Principles
+
+Documentation should remain stable over time.
+
+Avoid framework versions, package versions, and implementation-specific details in specification documents.
+
+Specifications define principles, responsibilities, and architecture boundaries.
+
+Technology versions and implementation details belong in reference documents.
+
+If documentation conflicts with assumptions, always follow the documentation.

@@ -1,0 +1,52 @@
+{
+  "summary": {
+    "referenced": 42,
+    "found": 42,
+    "missing": 0,
+    "unusedRasterOrVideo": 0,
+    "lifestyleRegistered": 4
+  },
+  "categories": {
+    "heroImages": 5,
+    "featureImages": 6,
+    "beforeAfter": 1,
+    "demoVideo": 1,
+    "ugcVideos": 3,
+    "lifestyleImages": 4,
+    "packaging": 1
+  },
+  "missing": [],
+  "unused": [],
+  "duplicates": [
+    [
+      "/products/hair-dryer-brush/before-after/after.png",
+      "/products/hair-dryer-brush/before-after/before.png",
+      "/products/hair-dryer-brush/features/ceramic-barrel.png",
+      "/products/hair-dryer-brush/features/cool-shot.png",
+      "/products/hair-dryer-brush/features/heat-control.png",
+      "/products/hair-dryer-brush/features/lightweight.png",
+      "/products/hair-dryer-brush/features/negative-ion.png",
+      "/products/hair-dryer-brush/features/oval-design.png",
+      "/products/hair-dryer-brush/hero/hero-back.png",
+      "/products/hair-dryer-brush/hero/hero-detail.png",
+      "/products/hair-dryer-brush/hero/hero-front.png",
+      "/products/hair-dryer-brush/hero/hero-main.png",
+      "/products/hair-dryer-brush/hero/hero-side.png",
+      "/products/hair-dryer-brush/lifestyle/lifestyle-bathroom.png",
+      "/products/hair-dryer-brush/lifestyle/lifestyle-bedroom.png",
+      "/products/hair-dryer-brush/lifestyle/lifestyle-closeup.png",
+      "/products/hair-dryer-brush/lifestyle/lifestyle-morning.png",
+      "/products/hair-dryer-brush/packaging/packaging.png",
+      "/products/hair-dryer-brush/videos/demo-poster.png",
+      "/products/hair-dryer-brush/videos/ugc-before-after-poster.png",
+      "/products/hair-dryer-brush/videos/ugc-morning-routine-poster.png",
+      "/products/hair-dryer-brush/videos/ugc-review-poster.png"
+    ],
+    [
+      "/products/hair-dryer-brush/videos/demo.mp4",
+      "/products/hair-dryer-brush/videos/ugc-before-after.mp4",
+      "/products/hair-dryer-brush/videos/ugc-morning-routine.mp4",
+      "/products/hair-dryer-brush/videos/ugc-review.mp4"
+    ]
+  ]
+}

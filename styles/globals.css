@@ -1,0 +1,16 @@
+/**
+ * Global stylesheet entry point.
+ * Import order: tokens → scales → theme → primitives → Tailwind.
+ */
+
+@import "./tokens.css";
+@import "./typography.css";
+@import "./spacing.css";
+@import "./layout.css";
+@import "./theme.css";
+@import "./primitives.css";
+@import "./product-layout.css";
+@import "./layout-debug.css";
+@import "./brand-layout.css";
+
+@import "tailwindcss";

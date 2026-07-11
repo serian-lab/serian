@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="640" viewBox="0 0 800 640" role="img" aria-label="Serian Hot Air Brush in use placeholder">
+  <rect width="800" height="640" fill="#f7f7f7"/>
+  <ellipse cx="400" cy="320" rx="180" ry="220" fill="#ececec" stroke="#d4d4d4" stroke-width="2"/>
+  <rect x="340" y="180" width="120" height="280" rx="60" fill="#e0e0e0"/>
+  <path d="M200 400 Q300 280 400 360" stroke="#d4d4d4" stroke-width="3" fill="none"/>
+  <text x="400" y="620" text-anchor="middle" fill="#a3a3a3" font-family="system-ui,sans-serif" font-size="13">In use</text>
+</svg>

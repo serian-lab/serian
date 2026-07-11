@@ -1,0 +1,254 @@
+/**
+ * Brand layout — site-wide identity, footer, contact, and policy pages.
+ * All values reference design tokens.
+ */
+
+/* ── Shared brand page rhythm ── */
+.brand-page {
+  padding-block: var(--layout-section-spacing-y-relaxed);
+}
+
+.brand-page--home {
+  padding-block-start: var(--layout-section-spacing-y);
+}
+
+.brand-page__intro {
+  max-width: var(--layout-reading-width);
+}
+
+.brand-page__lead {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-subtitle);
+  line-height: var(--line-height-subtitle);
+  max-width: var(--layout-reading-width);
+}
+
+.brand-tagline {
+  color: var(--color-text-muted);
+}
+
+/* ── Links ── */
+.brand-link a,
+.brand-link {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-underline-offset: var(--spacing-xs);
+  transition: color var(--duration-fast);
+}
+
+.brand-link a:hover,
+.brand-link:hover {
+  color: var(--color-text-primary);
+}
+
+.brand-link a:focus-visible,
+.brand-nav-link a:focus-visible,
+.brand-link-button:focus-visible {
+  outline: var(--border-width-strong) solid var(--color-border-focus);
+  outline-offset: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+}
+
+.brand-nav-link a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast);
+}
+
+.brand-nav-link a:hover {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-underline-offset: var(--spacing-xs);
+}
+
+.brand-link-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--layout-touch-target-min);
+  padding-inline: var(--spacing-md);
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-underline-offset: var(--spacing-xs);
+}
+
+/* ── Trust banner ── */
+.brand-trust-banner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.brand-trust-banner__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.brand-trust-banner__badge {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-primary);
+}
+
+.brand-trust-banner__badge .ui-text {
+  color: var(--color-text-secondary);
+  text-transform: none;
+  letter-spacing: var(--letter-spacing-caption);
+  font-size: var(--font-size-caption);
+}
+
+.brand-trust-banner__message {
+  max-width: var(--layout-reading-width);
+  color: var(--color-text-secondary);
+}
+
+/* ── Footer ── */
+.brand-footer__grid {
+  display: grid;
+  gap: var(--spacing-xl);
+}
+
+@media (min-width: 48rem) {
+  .brand-footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .brand-footer__grid {
+    grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+  }
+}
+
+.brand-footer__brand {
+  max-width: var(--layout-reading-width);
+}
+
+.brand-footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.brand-footer__contact {
+  padding-block-start: var(--spacing-xs);
+}
+
+.brand-footer__payment {
+  color: var(--color-text-muted);
+  padding-block-start: var(--spacing-sm);
+}
+
+.brand-footer__bottom {
+  padding-block-start: var(--spacing-lg);
+  border-block-start: var(--border-width-default) solid var(--color-border-subtle);
+}
+
+.brand-footer__legal-note {
+  color: var(--color-text-muted);
+  text-transform: none;
+  letter-spacing: var(--letter-spacing-caption);
+}
+
+/* ── Policy navigation ── */
+.brand-policy-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm) var(--spacing-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.brand-policy-nav__link a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast);
+}
+
+.brand-policy-nav__link a:hover {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-underline-offset: var(--spacing-xs);
+}
+
+.brand-policy-nav__link--active a {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-label);
+}
+
+/* ── Policy sections ── */
+.brand-policy-sections {
+  max-width: var(--layout-reading-width);
+}
+
+.brand-policy-section {
+  padding-block: var(--spacing-md);
+  border-block-end: var(--border-width-default) solid var(--color-border-subtle);
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.brand-policy-section:last-child {
+  border-block-end: none;
+}
+
+/* ── Contact page ── */
+.brand-contact-grid {
+  display: grid;
+  gap: var(--layout-product-grid-gap);
+}
+
+@media (min-width: 48rem) {
+  .brand-contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.brand-contact-card {
+  grid-column: 1 / -1;
+}
+
+.brand-support-card {
+  height: 100%;
+}
+
+/* ── Home page ── */
+.brand-home-hero {
+  max-width: var(--layout-reading-width);
+}
+
+.brand-home-cta {
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.brand-home-grid {
+  display: grid;
+  gap: var(--layout-product-grid-gap);
+}
+
+@media (min-width: 48rem) {
+  .brand-home-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.brand-home-card {
+  height: 100%;
+}
+
+/* ── Divider utility ── */
+.brand-divider {
+  border: none;
+  border-block-start: var(--border-width-default) solid var(--color-border-subtle);
+  margin: 0;
+}

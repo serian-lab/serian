@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="Styling demonstration placeholder">
+  <rect width="960" height="540" fill="#f5f5f5"/>
+  <ellipse cx="480" cy="270" rx="320" ry="200" fill="#ebebeb"/>
+  <path d="M200 320 Q480 120 760 320" stroke="#d4d4d4" stroke-width="3" fill="none"/>
+  <rect x="620" y="180" width="48" height="200" rx="24" fill="#e0e0e0" stroke="#cfcfcf"/>
+  <text x="480" y="500" text-anchor="middle" fill="#a3a3a3" font-family="system-ui,sans-serif" font-size="13">Section-by-section styling</text>
+</svg>

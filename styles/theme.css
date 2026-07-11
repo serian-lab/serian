@@ -1,0 +1,127 @@
+/**
+ * Maps design tokens into Tailwind v4 theme and global base styles.
+ * Enables optional utility-class usage while tokens remain the source of truth.
+ */
+
+@theme inline {
+  --font-sans: var(--font-family-sans);
+
+  --color-background: var(--color-bg-primary);
+  --color-foreground: var(--color-text-primary);
+  --color-muted: var(--color-text-muted);
+  --color-border: var(--color-border-default);
+
+  --spacing-xs: var(--spacing-xs);
+  --spacing-sm: var(--spacing-sm);
+  --spacing-md: var(--spacing-md);
+  --spacing-lg: var(--spacing-lg);
+  --spacing-xl: var(--spacing-xl);
+  --spacing-2xl: var(--spacing-2xl);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+}
+
+/* Global base — every page inherits these defaults */
+.ui-body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-body);
+  letter-spacing: var(--letter-spacing-body);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ui-site-main {
+  flex: 1;
+}
+
+.ui-site-header {
+  border-bottom: var(--border-width-default) solid var(--color-border-subtle);
+  padding-block: var(--spacing-md);
+  background-color: var(--color-bg-primary);
+}
+
+.ui-site-header__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.ui-site-header__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.ui-site-header__nav {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.ui-site-header__nav::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 48rem) {
+  .ui-site-header__inner {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+  }
+
+  .ui-site-header__nav {
+    overflow-x: visible;
+    flex-shrink: 0;
+  }
+}
+
+.ui-site-footer {
+  border-top: var(--border-width-default) solid var(--color-border-subtle);
+  padding-block: var(--layout-section-spacing-y);
+  background-color: var(--color-bg-secondary);
+  margin-top: auto;
+}
+
+.ui-site-header .ui-heading--title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ui-site-header .ui-heading--title a:hover {
+  text-decoration: underline;
+  text-underline-offset: var(--spacing-xs);
+}
+
+/* Quieter header on product pages — brand entry, not navigation chrome */
+.ui-site-header--product {
+  border-bottom-color: transparent;
+  padding-block: var(--spacing-sm);
+}
+
+@media (min-width: 48rem) {
+  .ui-site-header--product .ui-site-header__inner {
+    align-items: center;
+  }
+}
+
+.ui-site-header--product .ui-site-header__logo {
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-title);
+  letter-spacing: var(--letter-spacing-title);
+}
+
+.ui-site-header--product .brand-nav-link a {
+  color: var(--color-text-muted);
+}
+
+.ui-site-header--product .brand-nav-link a:hover {
+  color: var(--color-text-secondary);
+}
