@@ -1,27 +1,67 @@
 /**
  * Review Mode — layout debug overlays for design iteration screenshots.
- * Enabled via NEXT_PUBLIC_SHOW_LAYOUT_DEBUG=true
+ * Enabled via NEXT_PUBLIC_SHOW_LAYOUT_DEBUG=true on <body data-layout-debug="true">.
  */
 
-.layout-debug-region {
+[data-layout-debug="true"] .layout-debug-region {
   position: relative;
-  outline: 1px dashed color-mix(in srgb, var(--color-text-muted) 30%, transparent);
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+[data-layout-debug="true"] .layout-debug-region--section {
+  outline: 1px dashed rgba(120, 120, 128, 0.55);
   outline-offset: -1px;
 }
 
-.layout-debug-region__label {
+[data-layout-debug="true"] .layout-debug-region--sub {
+  outline: 1px dashed rgba(120, 120, 128, 0.38);
+  outline-offset: -1px;
+}
+
+[data-layout-debug="true"] .layout-debug-region__content {
+  position: relative;
+  pointer-events: auto;
+}
+
+[data-layout-debug="true"] .layout-debug-region__label {
   position: absolute;
   inset-block-start: var(--spacing-xs);
   inset-inline-start: var(--spacing-xs);
   z-index: 50;
-  padding: 0 var(--spacing-xs);
-  font-size: var(--font-size-caption);
-  font-weight: var(--font-weight-label);
-  letter-spacing: var(--letter-spacing-label);
+  padding: 0.125rem var(--spacing-xs);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  line-height: 1.5;
-  color: color-mix(in srgb, var(--color-text-muted) 30%, transparent);
-  background: color-mix(in srgb, var(--color-bg-primary) 72%, transparent);
+  line-height: 1.4;
+  color: rgba(90, 90, 98, 0.9);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(120, 120, 128, 0.25);
+  border-radius: 2px;
   pointer-events: none;
   user-select: none;
+}
+
+[data-layout-debug="true"] .layout-debug-region--sub .layout-debug-region__label {
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: rgba(100, 100, 108, 0.82);
+  background: rgba(255, 255, 255, 0.76);
+}
+
+[data-layout-debug="true"] .layout-debug-region--section::after {
+  content: attr(data-layout-debug-watermark);
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(120, 120, 128, 0.14);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 1;
 }

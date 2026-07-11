@@ -10,10 +10,11 @@ type HeroSupportProps = {
   className?: string;
 };
 
-/** Cohesive trust block — rating and guarantees as one quiet supporting layer. */
+/** Cohesive trust block — calm support language rather than sales pressure. */
 export function HeroSupport({ rating, reviewCount, className }: HeroSupportProps) {
   const badges = getProductTrustBadges();
   const showRating = rating != null && reviewCount != null;
+  const supportLine = badges.map((badge) => badge.label).join(" · ");
 
   return (
     <div className={cn("product-hero-support product-hero-support--quiet", className)}>
@@ -26,7 +27,7 @@ export function HeroSupport({ rating, reviewCount, className }: HeroSupportProps
         />
       )}
       <Text as="p" variant="caption" className="product-hero-support__guarantees">
-        {badges.map((badge) => badge.label).join(" · ")}
+        {supportLine}
       </Text>
     </div>
   );

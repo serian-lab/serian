@@ -119,14 +119,6 @@ export function ProductMediaGallery({
           variant="hero"
           priority={priority && activeIndex === 0}
         />
-        {images.length > 1 && (
-          <div className="product-media-gallery__counter" aria-hidden="true">
-            <span className="product-media-gallery__counter-label">Image</span>
-            <span className="product-media-gallery__counter-value">
-              {activeIndex + 1} / {images.length}
-            </span>
-          </div>
-        )}
       </div>
 
       {images.length > 1 && (

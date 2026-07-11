@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 
 import { Footer } from "./Footer";
 import { Header } from "./Header";
+import { LayoutDebugRegion } from "./LayoutDebugRegion";
 
 type SiteShellProps = {
   children: ReactNode;
@@ -11,9 +12,13 @@ type SiteShellProps = {
 export function SiteShell({ children }: SiteShellProps) {
   return (
     <>
-      <Header />
+      <LayoutDebugRegion label="HEADER" order={1}>
+        <Header />
+      </LayoutDebugRegion>
       <main className="ui-site-main">{children}</main>
-      <Footer />
+      <LayoutDebugRegion label="FOOTER" order={11}>
+        <Footer />
+      </LayoutDebugRegion>
     </>
   );
 }

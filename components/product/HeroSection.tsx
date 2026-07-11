@@ -1,4 +1,5 @@
 import { Container, Heading, Section, Text } from "@/components/ui";
+import { LayoutDebugRegion } from "@/components/layout/LayoutDebugRegion";
 import {
   HeroSupport,
   ProductMediaGallery,
@@ -33,29 +34,40 @@ export function HeroSection({
     >
       <Container width="content">
         <div className="product-hero product-hero--gallery-first">
-          <div className="product-hero__stage">
+          <LayoutDebugRegion label="BRAND" variant="sub" className="product-hero__brand">
+            <Text as="p" variant="caption" className="product-hero__eyebrow">
+              Serian
+            </Text>
+          </LayoutDebugRegion>
+          <LayoutDebugRegion label="GALLERY" variant="sub" className="product-hero__stage">
             <ProductMediaGallery images={images} priority presentation="stage" />
-          </div>
+          </LayoutDebugRegion>
 
           <div className="product-hero__story">
-            <Heading level={1} variant="display" className="product-hero__headline">
-              {content.headline}
-            </Heading>
+            <LayoutDebugRegion label="STORY" variant="sub" className="product-hero__text">
+              <Heading level={1} variant="display" className="product-hero__headline">
+                {content.headline}
+              </Heading>
 
-            {content.subheadline && (
-              <Text className="product-hero__lead">{content.subheadline}</Text>
-            )}
+              {content.subheadline && (
+                <Text className="product-hero__lead">{content.subheadline}</Text>
+              )}
+            </LayoutDebugRegion>
 
-            {ctaLabel && (
-              <a href="#purchase" className="product-hero__cta">
-                {ctaLabel}
-              </a>
-            )}
+            <LayoutDebugRegion label="CTA" variant="sub" className="product-hero__cta-wrap">
+              {ctaLabel && (
+                <a href="#purchase" className="product-hero__cta">
+                  {ctaLabel}
+                </a>
+              )}
+            </LayoutDebugRegion>
 
-            <HeroSupport
-              rating={reviewSummary?.averageRating}
-              reviewCount={reviewSummary?.totalCount}
-            />
+            <LayoutDebugRegion label="TRUST" variant="sub" className="product-hero__trust">
+              <HeroSupport
+                rating={reviewSummary?.averageRating}
+                reviewCount={reviewSummary?.totalCount}
+              />
+            </LayoutDebugRegion>
           </div>
         </div>
       </Container>

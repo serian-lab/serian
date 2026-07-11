@@ -10,7 +10,7 @@ type ProblemSectionProps = {
 /** Describes the user pain points the product addresses. */
 export function ProblemSection({ content }: ProblemSectionProps) {
   return (
-    <LayoutDebugRegion label="PROBLEM">
+    <LayoutDebugRegion label="PROBLEM" order={3}>
       <Section
         id={content.id}
         aria-label="Problem"
