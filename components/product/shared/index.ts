@@ -8,7 +8,5 @@ export { ProductRating } from "./ProductRating";
 export { ProductSectionHeader } from "./ProductSectionHeader";
 export { ProductTrustBadges } from "./ProductTrustBadges";
 export { ProductVideo } from "./ProductVideo";
-export { resolveFeatureMedia } from "./resolveFeatureMedia";
 export type { TrustBadge } from "./ProductTrustBadges";
 export type { MediaAssetWithFallback } from "./mediaFallback";
-export type { ResolvedFeatureMedia } from "./resolveFeatureMedia";

@@ -1,7 +1,7 @@
 export { BenefitsSection } from "./BenefitsSection";
 export { ComparisonSection } from "./ComparisonSection";
 export { FaqSection } from "./FaqSection";
-export { FeaturesSection } from "./FeaturesSection";
+export { ProductNarrativeSection } from "./ProductNarrativeSection";
 export { HeroSection } from "./HeroSection";
 export { ProblemSection } from "./ProblemSection";
 export { ProductPage } from "./ProductPage";

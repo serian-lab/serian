@@ -1,0 +1,122 @@
+/**
+ * Product Narrative — editorial chapter layout (Iteration 08).
+ * Scope: A Closer Look section only.
+ */
+
+.product-narrative {
+  --narrative-ink-muted: var(--color-text-muted);
+  --narrative-rule: var(--color-border-default);
+}
+
+.product-narrative__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  max-width: var(--layout-reading-width);
+}
+
+.product-narrative__eyebrow {
+  color: var(--narrative-ink-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.product-narrative__intro {
+  margin: 0;
+}
+
+.product-narrative__chapters {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--spacing-3xl), 8vw, var(--spacing-3xl));
+}
+
+.product-narrative__chapter-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.product-narrative__chapter-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.product-narrative__index {
+  color: var(--narrative-ink-muted);
+  font-size: var(--font-size-label);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+}
+
+.product-narrative__title {
+  margin: 0;
+}
+
+.product-narrative__body {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-subtitle);
+  line-height: var(--line-height-subtitle);
+  font-weight: var(--font-weight-subtitle);
+  letter-spacing: var(--letter-spacing-subtitle);
+}
+
+.product-narrative__media {
+  width: 100%;
+}
+
+.product-media--narrative {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+}
+
+@media (min-width: 48rem) {
+  .product-narrative__chapter-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: center;
+    gap: clamp(var(--spacing-xl), 4vw, var(--spacing-3xl));
+  }
+
+  .product-narrative__chapter--reverse .product-narrative__media {
+    order: 2;
+  }
+
+  .product-narrative__chapter--reverse .product-narrative__content {
+    order: 1;
+  }
+
+  .product-narrative__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding-inline: clamp(0px, 2vw, var(--spacing-lg));
+  }
+
+  .product-media--narrative {
+    aspect-ratio: 5 / 6;
+    min-height: clamp(20rem, 36vw, 28rem);
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .product-narrative__content {
+    display: contents;
+  }
+
+  .product-narrative__chapter-head {
+    order: 1;
+  }
+
+  .product-narrative__media {
+    order: 2;
+  }
+
+  .product-narrative__body {
+    order: 3;
+  }
+}

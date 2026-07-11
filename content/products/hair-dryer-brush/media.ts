@@ -117,21 +117,19 @@ export const mediaKit: ProductMediaKit = {
       ),
     ],
   },
-  features: [
+  narrative: [
     {
-      id: "oval-barrel",
-      layout: "media-start",
+      id: "the-shape",
       image: image(
         `${base}/features/ceramic-barrel.png`,
         `${base}/features/feature-barrel.svg`,
-        "Close-up of the ceramic-coated oval barrel and flexible bristles",
+        "The oval ceramic barrel — shaped to guide hair rather than fight it",
         1024,
         1024,
       ),
     },
     {
-      id: "heat-settings",
-      layout: "media-end",
+      id: "the-control",
       image: image(
         `${base}/features/heat-control.png`,
         `${base}/features/feature-controls.svg`,
@@ -141,45 +139,31 @@ export const mediaKit: ProductMediaKit = {
       ),
     },
     {
-      id: "lightweight",
-      layout: "inline",
+      id: "the-balance",
       image: image(
         `${base}/features/lightweight.png`,
         `${base}/features/feature-lightweight.svg`,
-        "Hot air brush held in one hand to show its lightweight profile",
+        "The brush held in one hand — balanced toward the handle for everyday use",
         1024,
         1024,
       ),
     },
     {
-      id: "cool-tip",
-      layout: "media-start",
+      id: "the-finish",
       image: image(
         `${base}/features/cool-shot.png`,
         `${base}/features/feature-barrel.svg`,
-        "Cool-shot button and heat-insulated tip for safe styling close to the scalp",
+        "Heat-insulated tip for guiding the brush close to the scalp",
         1024,
         1024,
       ),
     },
     {
-      id: "swivel-cord",
-      layout: "media-end",
-      image: image(
-        `${base}/features/negative-ion.png`,
-        `${base}/features/feature-controls.svg`,
-        "Negative ion outlet near the barrel for smoother-looking results",
-        1024,
-        1024,
-      ),
-    },
-    {
-      id: "us-plug",
-      layout: "inline",
+      id: "the-detail",
       image: image(
         `${base}/features/oval-design.png`,
         `${base}/features/feature-lightweight.svg`,
-        "Oval barrel design optimized for root lift and smooth ends",
+        "Cord exit and swivel base — designed to follow your movement",
         1024,
         1024,
       ),
@@ -310,7 +294,7 @@ export const productMediaRegistry = {
 export const media = {
   hero: mediaKit.hero.images[mediaKit.hero.primaryIndex ?? 0],
   demonstration: mediaKit.assets!.demonstration!,
-  featureBarrel: mediaKit.features[0].image!,
-  featureControls: mediaKit.features[1].image!,
-  featureLightweight: mediaKit.features[2].image!,
+  narrativeShape: mediaKit.narrative[0].image!,
+  narrativeControl: mediaKit.narrative[1].image!,
+  narrativeBalance: mediaKit.narrative[2].image!,
 } as const;

@@ -4,7 +4,7 @@ import { faq } from "./faq";
 import { hero } from "./hero";
 import { mediaKit } from "./media";
 import { commerce, meta } from "./meta";
-import { benefits, comparison, features, problem, solution } from "./narrative";
+import { benefits, comparison, productNarrative, problem, solution } from "./narrative";
 import { purchase } from "./purchase";
 import { reviews } from "./reviews";
 import { seo } from "./seo";
@@ -18,7 +18,7 @@ export const hairDryerBrush: ProductPageContent = {
     hero,
     problem,
     solution,
-    features,
+    productNarrative,
     benefits,
     comparison,
     reviews,

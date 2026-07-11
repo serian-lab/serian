@@ -1,10 +1,8 @@
 import type { MediaAsset, SectionBase, SectionVisibility, TextBlock } from "./shared";
 
 /**
- * Narrative sections aligned with the Engineering Playbook landing page flow:
- * Hero → Problem → Solution → Features → Benefits → Comparison → Reviews → FAQ → Purchase
- *
- * Each section maps to one primary user question defined in Product Page Template.
+ * Narrative sections aligned with the Serian product page flow:
+ * Hero → Problem → Solution → Product Narrative → Benefits → Comparison → Reviews → FAQ → Purchase
  */
 
 /** Section 1 — Attention: "What is this?" */
@@ -26,9 +24,19 @@ export interface SolutionSection extends SectionBase {
   demonstrationImage?: MediaAsset;
 }
 
-/** Section 4 — Features: product capability breakdown */
-export interface FeaturesSection extends SectionBase {
-  features: Array<TextBlock & { id: string; image?: MediaAsset }>;
+/** One design decision in the product narrative — not a feature listing. */
+export interface ProductNarrativeChapter {
+  id: string;
+  title: string;
+  body: string;
+  image?: MediaAsset;
+}
+
+/** Section 4 — Product Narrative: "Why was this designed this way?" */
+export interface ProductNarrativeSection extends SectionBase {
+  eyebrow?: string;
+  introduction?: string;
+  chapters: ProductNarrativeChapter[];
 }
 
 /** Section 5 — Benefits: outcome-focused value */
@@ -91,7 +99,7 @@ export interface ProductPageSections {
   hero: HeroSection;
   problem: ProblemSection;
   solution: SolutionSection;
-  features: FeaturesSection;
+  productNarrative: ProductNarrativeSection;
   benefits: BenefitsSection;
   comparison: ComparisonSection;
   reviews: ReviewsSection;

@@ -7,7 +7,7 @@ import { BenefitsSection } from "./BenefitsSection";
 import { ComparisonSection } from "./ComparisonSection";
 import { DemoVideoSection } from "./DemoVideoSection";
 import { FaqSection } from "./FaqSection";
-import { FeaturesSection } from "./FeaturesSection";
+import { ProductNarrativeSection } from "./ProductNarrativeSection";
 import { HeroSection } from "./HeroSection";
 import { ProblemSection } from "./ProblemSection";
 import { PurchaseSection } from "./PurchaseSection";
@@ -47,8 +47,11 @@ export function ProductPage({ product }: ProductPageProps) {
           <DemoVideoSection content={mediaKit.demo} />
         </LayoutDebugRegion>
       )}
-      <LayoutDebugRegion label="FEATURES" order={5}>
-        <FeaturesSection content={sections.features} featureMedia={mediaKit.features} />
+      <LayoutDebugRegion label="NARRATIVE" order={5}>
+        <ProductNarrativeSection
+          content={sections.productNarrative}
+          narrativeMedia={mediaKit.narrative}
+        />
       </LayoutDebugRegion>
       <LayoutDebugRegion label="BENEFITS" order={6}>
         <BenefitsSection content={sections.benefits} />

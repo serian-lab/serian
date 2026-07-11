@@ -1,8 +1,8 @@
 import type {
   BenefitsSection,
   ComparisonSection,
-  FeaturesSection,
   ProblemSection,
+  ProductNarrativeSection,
   SolutionSection,
 } from "@/types/content";
 
@@ -57,45 +57,42 @@ export const solution: SolutionSection = {
   demonstrationImage: media.demonstration,
 };
 
-export const features: FeaturesSection = {
-  id: "features",
-  headline: "What the brush includes",
-  features: [
+export const productNarrative: ProductNarrativeSection = {
+  id: "closer-look",
+  eyebrow: "A closer look",
+  headline: "Why this brush exists",
+  introduction:
+    "Every choice here serves a morning — not a spec sheet. These are the decisions that shaped how the brush feels in your hand and moves through your hair.",
+  chapters: [
     {
-      id: "oval-barrel",
-      title: "Oval ceramic barrel",
-      description:
-        "The barrel is oval rather than round, which helps create gentle bend and volume at the root while keeping ends smoother.",
+      id: "the-shape",
+      title: "The Shape",
+      body:
+        "We chose an oval barrel rather than a round one. A round barrel curls evenly in every direction. An oval barrel creates bend where you want volume and keeps the ends from curling more than you intend.",
     },
     {
-      id: "heat-settings",
-      title: "Three heat and airflow settings",
-      description:
-        "Low, medium, and high settings let you adjust for fine, normal, or thicker hair — and for roots versus ends.",
+      id: "the-control",
+      title: "The Control",
+      body:
+        "Three heat and airflow settings — not five. Enough range for fine hair, everyday use, and thicker sections. Fewer settings mean less second-guessing before your coffee cools.",
     },
     {
-      id: "lightweight",
-      title: "Lightweight handle",
-      description:
-        "At under 1 lb, the brush is easier to hold through a full styling session without shoulder strain.",
+      id: "the-balance",
+      title: "The Balance",
+      body:
+        "Under one pound, deliberately. A styling session should not feel like an arm workout. The weight sits toward the handle so the barrel feels light as you work through each section.",
     },
     {
-      id: "cool-tip",
-      title: "Cool tip",
-      description:
-        "A heat-insulated tip gives you a safe place to hold and rotate the brush while working close to the scalp.",
+      id: "the-finish",
+      title: "The Finish",
+      body:
+        "A cool tip you can hold. Styling close to the scalp means your fingers are never far from heat. The insulated tip gives you a place to rotate and guide without thinking about distance.",
     },
     {
-      id: "swivel-cord",
-      title: "360° swivel cord",
-      description:
-        "The cord rotates as you move, which reduces tangling when you switch sides or work at the back of your head.",
-    },
-    {
-      id: "us-plug",
-      title: "US-compatible plug",
-      description:
-        "Designed for 110V outlets in the United States and Canada. A US plug is included.",
+      id: "the-detail",
+      title: "The Detail",
+      body:
+        "A cord that moves with you. The swivel base follows your path from one side to the other — less tangling when you switch hands or reach the back.",
     },
   ],
 };

@@ -95,7 +95,8 @@
   padding: var(--spacing-xs) var(--spacing-sm);
   border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-full);
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-surface-elevated);
+  transition: var(--transition-interactive);
 }
 
 .product-trust-badges--compact .product-trust-badge {
@@ -117,10 +118,10 @@
 .product-media {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: var(--border-width-default) solid var(--color-border-default);
-  background-color: var(--color-bg-muted);
-  box-shadow: var(--shadow-card);
+  background-color: var(--color-surface-elevated);
+  box-shadow: var(--shadow-none);
 }
 
 .product-media__image {
@@ -602,9 +603,10 @@
 .product-review-summary {
   max-width: var(--layout-reading-width);
   padding: var(--spacing-md);
-  border: var(--border-width-default) solid var(--color-border-subtle);
+  border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-card);
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-surface-elevated);
+  box-shadow: var(--shadow-none);
 }
 
 .product-section--decision .product-review-summary {
@@ -680,8 +682,16 @@
   max-width: var(--layout-reading-width);
   margin-inline: auto;
   padding: clamp(var(--spacing-lg), 3vw, var(--spacing-xl));
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-none);
+  background-color: var(--color-surface-elevated);
+  transition: var(--transition-interactive);
+}
+
+.product-purchase:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-sm);
 }
 
 .product-purchase__badges {

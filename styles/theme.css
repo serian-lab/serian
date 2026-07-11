@@ -1,6 +1,5 @@
 /**
- * Maps design tokens into Tailwind v4 theme and global base styles.
- * Enables optional utility-class usage while tokens remain the source of truth.
+ * Global theme V1 — Tailwind bridge, base styles, paper material, scroll reveal.
  */
 
 @theme inline {
@@ -23,8 +22,9 @@
   --radius-lg: var(--radius-lg);
 }
 
-/* Global base — every page inherits these defaults */
+/* ── Global base — warm paper canvas ── */
 .ui-body {
+  position: relative;
   font-family: var(--font-family-sans);
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
@@ -37,10 +37,24 @@
   flex-direction: column;
 }
 
+/* Subtle paper grain — barely perceptible, does not affect readability */
+.ui-body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--paper-texture-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
 .ui-site-main {
   flex: 1;
 }
 
+/* ── Header shell ── */
 .ui-site-header {
   border-bottom: var(--border-width-default) solid var(--color-border-subtle);
   padding-block: var(--spacing-md);
@@ -93,14 +107,14 @@
 .ui-site-header .ui-heading--title a {
   color: inherit;
   text-decoration: none;
+  transition: var(--transition-interactive);
 }
 
 .ui-site-header .ui-heading--title a:hover {
-  text-decoration: underline;
-  text-underline-offset: var(--spacing-xs);
+  color: var(--color-accent);
+  text-decoration: none;
 }
 
-/* Quieter header on product pages — brand entry, not navigation chrome */
 .ui-site-header--product {
   border-bottom-color: transparent;
   padding-block: var(--spacing-sm);
@@ -124,4 +138,27 @@
 
 .ui-site-header--product .brand-nav-link a:hover {
   color: var(--color-text-secondary);
+}
+
+/* ── Scroll reveal — lightweight section enter (opacity + 8px) ── */
+@keyframes serian-section-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .ui-section:not(.serian-i06-hero) {
+      animation: serian-section-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 22%;
+    }
+  }
 }

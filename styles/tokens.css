@@ -1,80 +1,99 @@
 /**
- * Core design tokens — single source of truth for all visual values.
- * Components must reference these variables; never hardcode colors or effects.
+ * Serian Design System V1 — core tokens.
+ * Warm editorial material language. Single source of truth for all visual values.
  */
 
 :root {
-  /* ── Color palette (neutral, calm, trust-oriented) ── */
-  --color-neutral-50: #fafafa;
-  --color-neutral-100: #f5f5f5;
-  --color-neutral-200: #e5e5e5;
-  --color-neutral-300: #d4d4d4;
-  --color-neutral-400: #a3a3a3;
-  --color-neutral-500: #737373;
-  --color-neutral-600: #525252;
-  --color-neutral-700: #404040;
-  --color-neutral-800: #262626;
-  --color-neutral-900: #171717;
-  --color-neutral-950: #0a0a0a;
+  /* ── Warm neutral palette ── */
+  --color-neutral-50: #faf9f6;
+  --color-neutral-100: #f6f4ef;
+  --color-neutral-150: #f0ede6;
+  --color-neutral-200: #e8e4dc;
+  --color-neutral-300: #d4cfc5;
+  --color-neutral-400: #a9a196;
+  --color-neutral-500: #7a7369;
+  --color-neutral-600: #5c564e;
+  --color-neutral-700: #3d3934;
+  --color-neutral-800: #2a2724;
+  --color-neutral-900: #1a1816;
+  --color-neutral-950: #121110;
 
-  /* ── Semantic text colors ── */
+  /* ── Wood accent (deep walnut / coffee — not red-brown) ── */
+  --color-wood-600: #4a3f35;
+  --color-wood-700: #3d332b;
+  --color-wood-800: #2f2720;
+
+  /* ── Semantic text ── */
   --color-text-primary: var(--color-neutral-900);
   --color-text-secondary: var(--color-neutral-600);
   --color-text-muted: var(--color-neutral-500);
-  --color-text-inverse: #ffffff;
+  --color-text-inverse: var(--color-neutral-50);
 
-  /* ── Semantic background colors ── */
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: var(--color-neutral-50);
-  --color-bg-muted: var(--color-neutral-100);
+  /* ── Semantic backgrounds ── */
+  --color-bg-primary: #f6f4ef;
+  --color-bg-secondary: var(--color-neutral-150);
+  --color-bg-muted: #ebe8e1;
   --color-bg-inverse: var(--color-neutral-900);
-  --color-surface-elevated: #ffffff;
+  --color-surface-elevated: #faf9f6;
 
-  /* ── Semantic border colors ── */
+  /* ── Semantic borders ── */
   --color-border-default: var(--color-neutral-200);
-  --color-border-subtle: rgb(0 0 0 / 0.06);
+  --color-border-subtle: rgb(26 24 22 / 0.06);
   --color-border-strong: var(--color-neutral-300);
-  --color-border-focus: var(--color-neutral-900);
+  --color-border-focus: var(--color-wood-600);
 
-  /* ── Interactive colors ── */
-  --color-interactive-bg: var(--color-neutral-900);
-  --color-interactive-bg-hover: var(--color-neutral-800);
+  /* ── Accent & interactive ── */
+  --color-accent: var(--color-wood-600);
+  --color-accent-hover: var(--color-wood-700);
+  --color-interactive-bg: var(--color-accent);
+  --color-interactive-bg-hover: var(--color-accent-hover);
   --color-interactive-text: var(--color-text-inverse);
+  --color-interactive-border: var(--color-accent);
 
-  /* ── Border radius ── */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
+  /* ── Radius system V1 ── */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
   --radius-xl: 1rem;
-  --radius-full: 9999px;
+  --radius-full: 999px;
+  --radius-button: var(--radius-md);
+  --radius-card: var(--radius-md);
 
   /* ── Border width ── */
   --border-width-default: 1px;
   --border-width-strong: 2px;
 
-  /* ── Shadows (restrained, Apple-like discipline) ── */
-  --shadow-surface: 0 1px 2px rgb(0 0 0 / 0.04);
-  --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.06);
-  --shadow-lg: 0 8px 24px rgb(0 0 0 / 0.07);
-  --shadow-card: var(--shadow-surface);
+  /* ── Shadow system V1 — border first, shadow second ── */
+  --shadow-none: none;
+  --shadow-surface: none;
+  --shadow-sm: 0 1px 2px rgb(26 24 22 / 0.03);
+  --shadow-md: 0 2px 6px rgb(26 24 22 / 0.04);
+  --shadow-lg: 0 4px 12px rgb(26 24 22 / 0.05);
+  --shadow-card: var(--shadow-none);
   --shadow-card-hover: var(--shadow-sm);
 
-  /* ── Card system ── */
-  --radius-card: var(--radius-lg);
-
   /* ── Rating ── */
-  --color-rating-active: var(--color-neutral-900);
+  --color-rating-active: var(--color-text-primary);
   --color-rating-inactive: var(--color-neutral-300);
 
   /* ── Opacity ── */
   --opacity-disabled: 0.5;
   --opacity-muted: 0.72;
 
-  /* ── Transition duration ── */
+  /* ── Motion system V1 — 150–200ms, no scale/translate ── */
   --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-slow: 350ms;
+  --duration-normal: 200ms;
+  --duration-slow: 200ms;
+  --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-interactive:
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-standard),
+    opacity var(--duration-normal) var(--ease-standard);
+
+  /* ── Paper material ── */
+  --paper-texture-opacity: 0.022;
 
   /* ── Z-index layers ── */
   --z-base: 0;

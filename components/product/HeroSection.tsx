@@ -1,4 +1,4 @@
-import { Container, Heading, Section, Text } from "@/components/ui";
+import { Heading, Section, Text } from "@/components/ui";
 import { LayoutDebugRegion } from "@/components/layout/LayoutDebugRegion";
 import {
   HeroSupport,
@@ -14,7 +14,7 @@ type HeroSectionProps = {
   ctaLabel?: string;
 };
 
-/** Product-first hero — a calm stage where the product is the visual protagonist. */
+/** Product-first hero — editorial stage where the product is the visual protagonist. */
 export function HeroSection({
   content,
   galleryImages,
@@ -30,39 +30,45 @@ export function HeroSection({
     <Section
       id={content.id}
       aria-label="Hero"
-      className="product-section product-section--hero product-section--hero-stage product-section--stage"
+      className="product-section product-section--hero serian-i06-hero"
     >
-      <Container width="content">
-        <div className="product-hero product-hero--gallery-first">
-          <LayoutDebugRegion label="BRAND" variant="sub" className="product-hero__brand">
-            <Text as="p" variant="caption" className="product-hero__eyebrow">
-              Serian
-            </Text>
-          </LayoutDebugRegion>
-          <LayoutDebugRegion label="GALLERY" variant="sub" className="product-hero__stage">
+      <div className="serian-i06-hero__grid">
+        <div className="serian-i06-hero__gallery">
+          <LayoutDebugRegion label="GALLERY" variant="sub">
             <ProductMediaGallery images={images} priority presentation="stage" />
           </LayoutDebugRegion>
+        </div>
 
-          <div className="product-hero__story">
-            <LayoutDebugRegion label="STORY" variant="sub" className="product-hero__text">
-              <Heading level={1} variant="display" className="product-hero__headline">
+        <div className="serian-i06-hero__panel">
+          <div className="serian-i06-hero__panel-inner">
+            <LayoutDebugRegion label="BRAND" variant="sub">
+              <Text as="p" variant="caption" className="serian-i06-hero__eyebrow">
+                Serian
+              </Text>
+            </LayoutDebugRegion>
+
+            <LayoutDebugRegion label="STORY" variant="sub" className="serian-i06-hero__story">
+              <Heading level={1} variant="display" className="serian-i06-hero__headline">
                 {content.headline}
               </Heading>
 
               {content.subheadline && (
-                <Text className="product-hero__lead">{content.subheadline}</Text>
+                <Text className="serian-i06-hero__lead">{content.subheadline}</Text>
               )}
             </LayoutDebugRegion>
 
-            <LayoutDebugRegion label="CTA" variant="sub" className="product-hero__cta-wrap">
+            <LayoutDebugRegion label="CTA" variant="sub" className="serian-i06-hero__actions">
               {ctaLabel && (
-                <a href="#purchase" className="product-hero__cta">
+                <a href="#purchase" className="ui-link serian-i06-hero__cta">
                   {ctaLabel}
+                  <span className="serian-i06-hero__cta-arrow" aria-hidden="true">
+                    →
+                  </span>
                 </a>
               )}
             </LayoutDebugRegion>
 
-            <LayoutDebugRegion label="TRUST" variant="sub" className="product-hero__trust">
+            <LayoutDebugRegion label="TRUST" variant="sub">
               <HeroSupport
                 rating={reviewSummary?.averageRating}
                 reviewCount={reviewSummary?.totalCount}
@@ -70,7 +76,7 @@ export function HeroSection({
             </LayoutDebugRegion>
           </div>
         </div>
-      </Container>
+      </div>
     </Section>
   );
 }

@@ -32,13 +32,15 @@
 .brand-link {
   color: var(--color-text-secondary);
   text-decoration: underline;
-  text-underline-offset: var(--spacing-xs);
-  transition: color var(--duration-fast);
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--color-border-strong);
+  transition: var(--transition-interactive);
 }
 
 .brand-link a:hover,
 .brand-link:hover {
-  color: var(--color-text-primary);
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
 }
 
 .brand-link a:focus-visible,
@@ -67,8 +69,16 @@
   min-height: var(--layout-touch-target-min);
   padding-inline: var(--spacing-md);
   color: var(--color-text-primary);
+  font-weight: 500;
   text-decoration: underline;
-  text-underline-offset: var(--spacing-xs);
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--color-accent);
+  transition: var(--transition-interactive);
+}
+
+.brand-link-button:hover {
+  color: var(--color-accent-hover);
+  text-decoration-color: var(--color-accent-hover);
 }
 
 /* ── Trust banner ── */
@@ -91,7 +101,8 @@
   padding: var(--spacing-xs) var(--spacing-sm);
   border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-full);
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-surface-elevated);
+  transition: var(--transition-interactive);
 }
 
 .brand-trust-banner__badge .ui-text {

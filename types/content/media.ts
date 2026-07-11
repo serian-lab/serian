@@ -87,6 +87,12 @@ export interface ProductMediaAssets {
   og?: ImageMediaAsset;
 }
 
+/** Media configuration keyed to a narrative chapter by stable id. */
+export interface NarrativeChapterMediaRef {
+  id: string;
+  image: ImageMediaAsset;
+}
+
 /**
  * Complete media kit for a product — single source for all visual assets.
  * Update only media.ts and public/products/{slug}/ to change page media.
@@ -94,7 +100,7 @@ export interface ProductMediaAssets {
 export interface ProductMediaKit {
   slug: string;
   hero: HeroGalleryMedia;
-  features: FeatureMediaRef[];
+  narrative: NarrativeChapterMediaRef[];
   demo?: DemoVideoMedia;
   beforeAfter?: BeforeAfterMedia;
   ugc?: UgcShowcaseMedia;

@@ -9,6 +9,7 @@ export type {
 } from "./shared";
 
 export type {
+  NarrativeChapterMediaRef,
   BeforeAfterMedia,
   BeforeAfterPair,
   DemoVideoMedia,
@@ -33,9 +34,10 @@ export type {
   ComparisonSection,
   FaqItem,
   FaqSection,
-  FeaturesSection,
   HeroSection,
   ProblemSection,
+  ProductNarrativeChapter,
+  ProductNarrativeSection,
   ProductPageSections,
   PurchaseSection,
   Review,

@@ -12,6 +12,7 @@ import { getNextMediaSrc, type MediaAssetWithFallback } from "./mediaFallback";
 type ProductMediaVariant =
   | "hero"
   | "feature"
+  | "narrative"
   | "demonstration"
   | "thumbnail"
   | "before-after"
@@ -27,6 +28,7 @@ type ProductMediaProps = {
 const sizesByVariant: Record<ProductMediaVariant, string> = {
   hero: "(max-width: 48rem) 100vw, 480px",
   feature: "(max-width: 48rem) 100vw, 320px",
+  narrative: "(max-width: 48rem) 100vw, 50vw",
   demonstration: "(max-width: 48rem) 100vw, 640px",
   thumbnail: "72px",
   "before-after": "(max-width: 48rem) 50vw, 320px",
