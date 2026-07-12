@@ -1,4 +1,3 @@
-export { BeforeAfterBlock } from "./BeforeAfterBlock";
 export { HeroSupport } from "./HeroSupport";
 export { buildHeroGallery } from "./buildHeroGallery";
 export { getNextMediaSrc, posterToImageAsset } from "./mediaFallback";

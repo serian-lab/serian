@@ -183,33 +183,6 @@ export const mediaKit: ProductMediaKit = {
       720,
     ),
   },
-  beforeAfter: {
-    enabled: true,
-    headline: "Before and after",
-    subheadline: "Real results from a simpler morning routine",
-    pairs: [
-      {
-        id: "everyday-finish",
-        title: "Everyday smooth finish",
-        description:
-          "Section-by-section styling with combined heat and tension helps hair lay smoother with more intentional shape.",
-        before: image(
-          `${base}/before-after/before.png`,
-          `${base}/before-after/before.svg`,
-          "Hair before styling — damp and without shape",
-          1024,
-          1024,
-        ),
-        after: image(
-          `${base}/before-after/after.png`,
-          `${base}/before-after/after.svg`,
-          "Hair after styling — smoother with gentle volume",
-          1024,
-          1024,
-        ),
-      },
-    ],
-  },
   ugc: {
     enabled: true,
     headline: "Real mornings, real results",

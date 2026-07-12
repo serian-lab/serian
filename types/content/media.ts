@@ -37,21 +37,6 @@ export interface FeatureMediaRef {
   layout?: FeatureMediaLayout;
 }
 
-/** Single before / after comparison pair. */
-export interface BeforeAfterPair {
-  id: string;
-  title: string;
-  description?: string;
-  before: ImageMediaAsset;
-  after: ImageMediaAsset;
-}
-
-export interface BeforeAfterMedia extends SectionVisibility {
-  headline: string;
-  subheadline?: string;
-  pairs: BeforeAfterPair[];
-}
-
 /** Product demonstration video block. */
 export interface DemoVideoMedia extends SectionVisibility {
   headline: string;
@@ -102,7 +87,6 @@ export interface ProductMediaKit {
   hero: HeroGalleryMedia;
   narrative: NarrativeChapterMediaRef[];
   demo?: DemoVideoMedia;
-  beforeAfter?: BeforeAfterMedia;
   ugc?: UgcShowcaseMedia;
   assets?: ProductMediaAssets;
 }

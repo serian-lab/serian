@@ -10,8 +10,6 @@ export type {
 
 export type {
   NarrativeChapterMediaRef,
-  BeforeAfterMedia,
-  BeforeAfterPair,
   DemoVideoMedia,
   FeatureMediaLayout,
   FeatureMediaRef,

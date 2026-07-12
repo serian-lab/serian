@@ -2,7 +2,6 @@ import type { ProductPageContent } from "@/types/content";
 
 import { LayoutDebugRegion } from "@/components/layout/LayoutDebugRegion";
 
-import { BeforeAfterSection } from "./BeforeAfterSection";
 import { BenefitsSection } from "./BenefitsSection";
 import { ComparisonSection } from "./ComparisonSection";
 import { DemoVideoSection } from "./DemoVideoSection";
@@ -56,11 +55,6 @@ export function ProductPage({ product }: ProductPageProps) {
       <LayoutDebugRegion label="BENEFITS" order={6}>
         <BenefitsSection content={sections.benefits} />
       </LayoutDebugRegion>
-      {mediaKit.beforeAfter && (
-        <LayoutDebugRegion label="BEFORE AFTER">
-          <BeforeAfterSection content={mediaKit.beforeAfter} />
-        </LayoutDebugRegion>
-      )}
       <LayoutDebugRegion label="COMPARISON" order={7}>
         <ComparisonSection content={sections.comparison} />
       </LayoutDebugRegion>

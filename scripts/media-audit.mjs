@@ -110,7 +110,6 @@ const report = {
   categories: {
     heroImages: mediaKit.hero.images.length,
     narrativeImages: mediaKit.narrative.length,
-    beforeAfter: mediaKit.beforeAfter?.pairs.length ?? 0,
     demoVideo: mediaKit.demo ? 1 : 0,
     ugcVideos: mediaKit.ugc?.items.length ?? 0,
     lifestyleImages: lifestyleMedia.length,
