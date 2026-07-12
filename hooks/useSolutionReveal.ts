@@ -1,10 +1,10 @@
 "use client";
 
-import type { RefObject } from "react";
-
 import { motionTokens } from "@/lib/motion";
 
 import { useSectionReveal } from "./useSectionReveal";
+
+const SOLUTION_SECTION_SELECTOR = "#solution";
 
 const INTRO_DELAY = 0.12;
 
@@ -16,9 +16,9 @@ function getSolutionTargets(root: HTMLElement): HTMLElement[] {
 }
 
 /** Header-only scroll reveal for Solution — standard section timeline. */
-export function useSolutionReveal(sectionRef: RefObject<HTMLElement | null>) {
+export function useSolutionReveal() {
   useSectionReveal(
-    sectionRef,
+    SOLUTION_SECTION_SELECTOR,
     ({ root, tl }) => {
       const headline = root.querySelector<HTMLElement>(".product-section-header");
       const intro = root.querySelector<HTMLElement>(".product-section-intro");

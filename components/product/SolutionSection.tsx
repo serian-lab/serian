@@ -1,7 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-
 import { Card, Container, Heading, Section, Stack, Text } from "@/components/ui";
 import { ProductMedia, ProductSectionHeader } from "@/components/product/shared";
 import { useSolutionReveal } from "@/hooks/useSolutionReveal";
@@ -13,12 +11,10 @@ type SolutionSectionProps = {
 
 /** Explains how the product solves the identified problem. */
 export function SolutionSection({ content }: SolutionSectionProps) {
-  const sectionRef = useRef<HTMLElement>(null);
-  useSolutionReveal(sectionRef);
+  useSolutionReveal();
 
   return (
     <Section
-      ref={sectionRef}
       id={content.id}
       aria-label="Solution"
       className="product-section product-section--story"

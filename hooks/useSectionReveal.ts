@@ -1,6 +1,6 @@
 "use client";
 
-import type { RefObject } from "react";
+import { useRef, type RefObject } from "react";
 
 import { useMotion } from "@/hooks/useMotion";
 import {
@@ -22,21 +22,35 @@ type SectionRevealOptions = {
   getTargets?: (root: HTMLElement) => HTMLElement[];
 };
 
+type SectionRevealScope = RefObject<HTMLElement | null> | string;
+
+function resolveSectionRoot(scope: SectionRevealScope): HTMLElement | null {
+  if (typeof scope === "string") {
+    return document.querySelector<HTMLElement>(scope);
+  }
+
+  return scope.current;
+}
+
 /**
  * Standard Type B section motion — one scope, one timeline, one ScrollTrigger.
  * Section-specific hooks compose their reading order inside `buildTimeline`.
  */
 export function useSectionReveal(
-  sectionRef: RefObject<HTMLElement | null>,
+  sectionScope: SectionRevealScope,
   buildTimeline: SectionRevealBuilder,
   options: SectionRevealOptions = {},
 ) {
+  const motionScopeRef = useRef<HTMLElement | null>(null);
+
   useMotion(
     () => {
-      const root = sectionRef.current;
+      const root = resolveSectionRoot(sectionScope);
       if (!root) {
         return;
       }
+
+      motionScopeRef.current = root;
 
       const gsap = getGsap();
       const reduced = shouldReduceMotion();
@@ -63,6 +77,6 @@ export function useSectionReveal(
 
       buildTimeline({ gsap, root, tl });
     },
-    sectionRef,
+    motionScopeRef,
   );
 }

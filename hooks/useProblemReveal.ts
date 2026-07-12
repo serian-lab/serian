@@ -1,10 +1,10 @@
 "use client";
 
-import type { RefObject } from "react";
-
 import { getGsap, motionTokens } from "@/lib/motion";
 
 import { useSectionReveal } from "./useSectionReveal";
+
+const PROBLEM_SECTION_SELECTOR = ".serian-i06-problem";
 
 const HEADING_STAGGER = 0.12;
 const HEADING_START = 0.35;
@@ -24,9 +24,9 @@ function getProblemTargets(root: HTMLElement): HTMLElement[] {
 }
 
 /** Scroll-triggered editorial reveal for Problem — standard section timeline. */
-export function useProblemReveal(sectionRef: RefObject<HTMLElement | null>) {
+export function useProblemReveal() {
   useSectionReveal(
-    sectionRef,
+    PROBLEM_SECTION_SELECTOR,
     ({ root, tl }) => {
       const gsap = getGsap();
       const container = root.querySelector<HTMLElement>(".serian-i06-problem__frame");

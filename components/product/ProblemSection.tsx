@@ -1,7 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-
 import { Container, Heading, Section, Text } from "@/components/ui";
 import { LayoutDebugRegion } from "@/components/layout/LayoutDebugRegion";
 import { useProblemReveal } from "@/hooks/useProblemReveal";
@@ -13,13 +11,11 @@ type ProblemSectionProps = {
 
 /** Describes the user pain points the product addresses. */
 export function ProblemSection({ content }: ProblemSectionProps) {
-  const sectionRef = useRef<HTMLElement>(null);
-  useProblemReveal(sectionRef);
+  useProblemReveal();
 
   return (
     <LayoutDebugRegion label="PROBLEM" order={3}>
       <Section
-        ref={sectionRef}
         id={content.id}
         aria-label="Problem"
         className="product-section product-section--story serian-i06-problem"
