@@ -2,137 +2,99 @@
 
 import type { RefObject } from "react";
 
-import { useMotion } from "@/hooks/useMotion";
-import {
-  createSectionScrollTrigger,
-  getGsap,
-  shouldReduceMotion,
-} from "@/lib/motion";
+import { getGsap, motionTokens } from "@/lib/motion";
 
-type ProblemRevealRefs = {
-  scope: RefObject<HTMLElement | null>;
-  container: RefObject<HTMLElement | null>;
-  eyebrow: RefObject<HTMLElement | null>;
-  headline: RefObject<HTMLElement | null>;
-  intro: RefObject<HTMLElement | null>;
-  list: RefObject<HTMLElement | null>;
-  divider?: RefObject<HTMLElement | null>;
-};
+import { useSectionReveal } from "./useSectionReveal";
 
-const EASE = "power2.out";
-const HEADING_DURATION = 0.55;
 const HEADING_STAGGER = 0.12;
 const HEADING_START = 0.35;
-const LIST_DURATION = 0.55;
 const LIST_STAGGER = 0.08;
+const LIST_GAP = 0.08;
 
-/** Scroll-triggered editorial reveal for Problem — once, scoped, calm pacing. */
-export function useProblemReveal({
-  scope,
-  container,
-  eyebrow,
-  headline,
-  intro,
-  list,
-  divider,
-}: ProblemRevealRefs) {
-  useMotion(
-    () => {
+function getProblemTargets(root: HTMLElement): HTMLElement[] {
+  const gsap = getGsap();
+
+  return [
+    root.querySelector<HTMLElement>(".serian-i06-problem__frame"),
+    root.querySelector<HTMLElement>(".serian-i06-section-index"),
+    root.querySelector<HTMLElement>(".serian-i06-problem__headline"),
+    root.querySelector<HTMLElement>(".serian-i06-problem__intro"),
+    ...gsap.utils.toArray<HTMLElement>(".serian-i06-problem__item", root),
+  ].filter((el): el is HTMLElement => el !== null);
+}
+
+/** Scroll-triggered editorial reveal for Problem — standard section timeline. */
+export function useProblemReveal(sectionRef: RefObject<HTMLElement | null>) {
+  useSectionReveal(
+    sectionRef,
+    ({ root, tl }) => {
       const gsap = getGsap();
-      const reduced = shouldReduceMotion();
+      const container = root.querySelector<HTMLElement>(".serian-i06-problem__frame");
+      const eyebrow = root.querySelector<HTMLElement>(".serian-i06-section-index");
+      const headline = root.querySelector<HTMLElement>(".serian-i06-problem__headline");
+      const intro = root.querySelector<HTMLElement>(".serian-i06-problem__intro");
+      const items = gsap.utils.toArray<HTMLElement>(".serian-i06-problem__item", root);
 
-      const items = list.current
-        ? (Array.from(list.current.children) as HTMLElement[])
-        : [];
-
-      const allTargets = [
-        container.current,
-        eyebrow.current,
-        headline.current,
-        intro.current,
-        ...items,
-        divider?.current,
-      ].filter(Boolean);
-
-      if (reduced) {
-        if (allTargets.length > 0) {
-          gsap.set(allTargets, {
-            autoAlpha: 1,
-            y: 0,
-            clearProps: "transform,opacity,visibility",
-          });
-        }
-        return;
-      }
-
-      const trigger = scope.current;
-      if (!trigger) {
-        return;
-      }
-
-      const scrollTrigger = createSectionScrollTrigger(trigger, {
-        start: "top 82%",
-      });
-
-      const tl = gsap.timeline({ scrollTrigger, defaults: { ease: EASE } });
-
-      if (container.current) {
-        tl.from(container.current, {
+      if (container) {
+        tl.from(container, {
           autoAlpha: 0,
-          y: 24,
-          duration: 0.8,
+          y: motionTokens.distance.md,
+          duration: motionTokens.duration.slow,
         });
       }
 
-      if (eyebrow.current) {
+      if (eyebrow) {
         tl.from(
-          eyebrow.current,
-          { autoAlpha: 0, y: 16, duration: HEADING_DURATION },
+          eyebrow,
+          {
+            autoAlpha: 0,
+            y: motionTokens.distance.sm,
+            duration: motionTokens.duration.base,
+          },
           HEADING_START,
         );
       }
 
-      if (headline.current) {
+      if (headline) {
         tl.from(
-          headline.current,
-          { autoAlpha: 0, y: 16, duration: HEADING_DURATION },
+          headline,
+          {
+            autoAlpha: 0,
+            y: motionTokens.distance.sm,
+            duration: motionTokens.duration.base,
+          },
           HEADING_START + HEADING_STAGGER,
         );
       }
 
-      if (intro.current) {
+      if (intro) {
         tl.from(
-          intro.current,
-          { autoAlpha: 0, y: 16, duration: HEADING_DURATION },
+          intro,
+          {
+            autoAlpha: 0,
+            y: motionTokens.distance.sm,
+            duration: motionTokens.duration.base,
+          },
           HEADING_START + HEADING_STAGGER * 2,
         );
       }
 
       const listStart =
-        HEADING_START + HEADING_STAGGER * 2 + HEADING_DURATION + 0.08;
+        HEADING_START + HEADING_STAGGER * 2 + motionTokens.duration.base + LIST_GAP;
 
       if (items.length > 0) {
         tl.from(
           items,
           {
             autoAlpha: 0,
-            y: 16,
-            duration: LIST_DURATION,
+            y: motionTokens.distance.sm,
+            duration: motionTokens.duration.base,
             stagger: LIST_STAGGER,
           },
           listStart,
         );
       }
-
-      if (divider?.current) {
-        const dividerStart =
-          items.length > 0
-            ? listStart + LIST_DURATION + LIST_STAGGER * (items.length - 1)
-            : HEADING_START + HEADING_STAGGER * 2 + HEADING_DURATION;
-
-        tl.from(divider.current, { autoAlpha: 0, duration: 0.4 }, dividerStart);
-      }
     },
-    scope,
+    { getTargets: getProblemTargets },
   );
 }
