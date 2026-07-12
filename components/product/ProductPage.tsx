@@ -55,9 +55,11 @@ export function ProductPage({ product }: ProductPageProps) {
       <LayoutDebugRegion label="BENEFITS" order={6}>
         <BenefitsSection content={sections.benefits} />
       </LayoutDebugRegion>
-      <LayoutDebugRegion label="COMPARISON" order={7}>
-        <ComparisonSection content={sections.comparison} />
-      </LayoutDebugRegion>
+      {sections.comparison?.enabled && (
+        <LayoutDebugRegion label="COMPARISON" order={7}>
+          <ComparisonSection content={sections.comparison} />
+        </LayoutDebugRegion>
+      )}
       {mediaKit.ugc && (
         <LayoutDebugRegion label="UGC">
           <UgcShowcaseSection content={mediaKit.ugc} />

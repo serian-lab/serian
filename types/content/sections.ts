@@ -1,8 +1,10 @@
 import type { MediaAsset, SectionBase, SectionVisibility, TextBlock } from "./shared";
 
 /**
- * Narrative sections aligned with the Serian product page flow:
- * Hero → Problem → Solution → Product Narrative → Benefits → Comparison → Reviews → FAQ → Purchase
+ * Core story sections:
+ * Hero → Problem → Solution → Product Narrative → Benefits → Reviews → FAQ → Purchase
+ *
+ * Optional modules (see ProductPage): Demo, Comparison, UGC, and future add-ons.
  */
 
 /** Section 1 — Attention: "What is this?" */
@@ -44,7 +46,7 @@ export interface BenefitsSection extends SectionBase {
   benefits: TextBlock[];
 }
 
-/** Section 6 — Comparison: "Does it actually work?" (Evidence) */
+/** Optional module — Comparison: "Does it actually work?" (Evidence) */
 export interface ComparisonSection extends SectionBase, SectionVisibility {
   rows: ComparisonRow[];
 }
@@ -101,7 +103,8 @@ export interface ProductPageSections {
   solution: SolutionSection;
   productNarrative: ProductNarrativeSection;
   benefits: BenefitsSection;
-  comparison: ComparisonSection;
+  /** Omit or set `enabled: false` when the product has no meaningful comparison. */
+  comparison?: ComparisonSection;
   reviews: ReviewsSection;
   faq: FaqSection;
   purchase: PurchaseSection;
