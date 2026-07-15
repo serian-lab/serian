@@ -20,6 +20,8 @@ type SectionRevealBuilder = (ctx: SectionRevealContext) => void;
 
 type SectionRevealOptions = {
   getTargets?: (root: HTMLElement) => HTMLElement[];
+  /** ScrollTrigger start — defaults to section entry cadence (`top 82%`). */
+  start?: string;
 };
 
 type SectionRevealScope = RefObject<HTMLElement | null> | string;
@@ -70,7 +72,7 @@ export function useSectionReveal(
 
       const tl = gsap.timeline({
         scrollTrigger: createSectionScrollTrigger(root, {
-          start: "top 82%",
+          start: options.start ?? "top 82%",
         }),
         defaults: { ease: motionTokens.ease.out },
       });

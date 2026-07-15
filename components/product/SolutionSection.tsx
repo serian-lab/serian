@@ -9,7 +9,11 @@ type SolutionSectionProps = {
   content: SolutionSectionContent;
 };
 
-/** Explains how the product solves the identified problem. */
+/**
+ * Editorial reading section — headline, introduction, then
+ * highlights (left) + demonstration image (right).
+ * One container fade-up on enter; cards/media keep CSS hover only.
+ */
 export function SolutionSection({ content }: SolutionSectionProps) {
   useSolutionReveal();
 
@@ -19,28 +23,44 @@ export function SolutionSection({ content }: SolutionSectionProps) {
       aria-label="Solution"
       className="product-section product-section--story"
     >
-      <Container width="reading">
-        <Stack gap="2xl">
-          <ProductSectionHeader headline={content.headline} />
-          <Text className="product-section-intro">{content.introduction}</Text>
-          <Stack as="ul" className="product-item-grid product-item-grid--story">
-            {content.highlights.map((highlight) => (
-              <Card as="li" key={highlight.title} className="product-item-card">
-                <Stack gap="sm">
-                  <Heading level={3} variant="title">
-                    {highlight.title}
-                  </Heading>
-                  <Text variant="caption">{highlight.description}</Text>
-                </Stack>
-              </Card>
-            ))}
+      <Container width="content">
+        <div className="product-solution">
+          <Stack gap="lg" className="product-solution__lead">
+            <ProductSectionHeader headline={content.headline} />
+            <Text className="product-section-intro product-solution__intro">
+              {content.introduction}
+            </Text>
           </Stack>
-          {content.demonstrationImage && (
-            <div className="product-solution-media">
-              <ProductMedia asset={content.demonstrationImage} variant="demonstration" />
-            </div>
-          )}
-        </Stack>
+
+          <div className="product-solution__body">
+            <Stack as="ul" gap="lg" className="product-solution__highlights">
+              {content.highlights.map((highlight) => (
+                <Card
+                  as="li"
+                  key={highlight.title}
+                  className="product-item-card product-solution__card"
+                  interactive
+                >
+                  <Stack gap="sm">
+                    <Heading level={3} variant="title">
+                      {highlight.title}
+                    </Heading>
+                    <Text variant="caption">{highlight.description}</Text>
+                  </Stack>
+                </Card>
+              ))}
+            </Stack>
+
+            {content.demonstrationImage && (
+              <div className="product-solution-media">
+                <ProductMedia
+                  asset={content.demonstrationImage}
+                  variant="demonstration"
+                />
+              </div>
+            )}
+          </div>
+        </div>
       </Container>
     </Section>
   );
