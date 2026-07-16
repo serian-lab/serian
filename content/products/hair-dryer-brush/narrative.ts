@@ -100,6 +100,7 @@ export const productNarrative: ProductNarrativeSection = {
 export const benefits: BenefitsSection = {
   id: "benefits",
   headline: "What changes in your routine",
+  enabled: true,
   benefits: [
     {
       title: "Less time between shower and door",

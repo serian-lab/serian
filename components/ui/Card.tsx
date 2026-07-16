@@ -1,4 +1,4 @@
-import type { ElementType, ReactNode } from "react";
+import type { ElementType, HTMLAttributes, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -10,7 +10,7 @@ type CardProps = {
   as?: ElementType;
   variant?: CardVariant;
   interactive?: boolean;
-};
+} & Omit<HTMLAttributes<HTMLElement>, "as" | "children" | "className">;
 
 /** Unified surface card — radius, border, shadow, and padding from design tokens. */
 export function Card({
@@ -19,6 +19,7 @@ export function Card({
   as: Component = "div",
   variant = "elevated",
   interactive = false,
+  ...rest
 }: CardProps) {
   return (
     <Component
@@ -28,6 +29,7 @@ export function Card({
         interactive && "ui-card--interactive",
         className,
       )}
+      {...rest}
     >
       {children}
     </Component>

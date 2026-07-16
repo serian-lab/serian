@@ -1,5 +1,8 @@
+"use client";
+
 import { Card, Container, Heading, Section, Stack, Text } from "@/components/ui";
 import { ProductRating, ProductSectionHeader } from "@/components/product/shared";
+import { useReviewsReveal } from "@/hooks/useReviewsReveal";
 import type { ReviewsSection as ReviewsSectionContent } from "@/types/content";
 
 type ReviewsSectionProps = {
@@ -23,45 +26,55 @@ function ReviewStars({ rating }: { rating: number }) {
   );
 }
 
-/** Displays customer reviews and rating summary. */
+/** Customer reviews — quiet reading enter; cards stay static after reveal. */
 export function ReviewsSection({ content }: ReviewsSectionProps) {
+  useReviewsReveal();
+
   if (!content.enabled) {
     return null;
   }
 
   return (
-    <Section id={content.id} aria-label="Reviews" className="product-section product-section--decision">
+    <Section
+      id={content.id}
+      aria-label="Reviews"
+      className="product-section product-section--decision"
+    >
       <Container width="reading">
         <Stack gap="xl">
           <ProductSectionHeader headline={content.headline} />
-          {content.summary && (
-            <div className="product-review-summary">
-              <ProductRating
-                rating={content.summary.averageRating}
-                reviewCount={content.summary.totalCount}
-              />
-            </div>
-          )}
-          <Stack as="ul" className="product-review-grid">
-            {content.reviews.map((review) => (
-              <Card as="li" key={review.id} className="product-review-card" interactive>
-                <Stack gap="sm">
-                  <div className="product-review-card__header">
-                    <Heading level={3} variant="subtitle">
-                      {review.author}
-                    </Heading>
-                    {review.verified && (
-                      <Text variant="label" className="product-review-card__verified">
-                        Verified
-                      </Text>
-                    )}
-                  </div>
-                  <ReviewStars rating={review.rating} />
-                  <Text variant="caption">{review.content}</Text>
-                </Stack>
-              </Card>
-            ))}
-          </Stack>
+          <div className="product-reviews-reading">
+            <Stack gap="xl">
+              {content.summary ? (
+                <div className="product-review-summary">
+                  <ProductRating
+                    rating={content.summary.averageRating}
+                    reviewCount={content.summary.totalCount}
+                  />
+                </div>
+              ) : null}
+              <Stack as="ul" className="product-review-grid">
+                {content.reviews.map((review) => (
+                  <Card as="li" key={review.id} className="product-review-card" interactive>
+                    <Stack gap="sm">
+                      <div className="product-review-card__header">
+                        <Heading level={3} variant="subtitle">
+                          {review.author}
+                        </Heading>
+                        {review.verified ? (
+                          <Text variant="label" className="product-review-card__verified">
+                            Verified
+                          </Text>
+                        ) : null}
+                      </div>
+                      <ReviewStars rating={review.rating} />
+                      <Text variant="caption">{review.content}</Text>
+                    </Stack>
+                  </Card>
+                ))}
+              </Stack>
+            </Stack>
+          </div>
         </Stack>
       </Container>
     </Section>

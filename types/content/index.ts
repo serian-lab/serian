@@ -45,6 +45,16 @@ export type {
 } from "./sections";
 
 export type {
+  PurchaseCta,
+  PurchasePanelContent,
+  PurchasePanelModules,
+  PurchaseQuantityConfig,
+  PurchaseTrustConfig,
+  PurchaseVariantGroup,
+  PurchaseVariantOption,
+} from "./purchase";
+
+export type {
   CommerceInfo,
   ProductCatalog,
   ProductMeta,
