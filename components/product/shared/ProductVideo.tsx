@@ -1,8 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 
 import type { VideoMediaAsset } from "@/types/content";
+import {
+  claimExclusivePlayback,
+  registerExclusivePlayer,
+} from "@/lib/video/exclusivePlayback";
 import { cn } from "@/lib/utils";
 
 import { posterToImageAsset } from "./mediaFallback";
@@ -11,17 +15,25 @@ import { ProductMedia } from "./ProductMedia";
 type ProductVideoProps = {
   asset: VideoMediaAsset & { posterFallbackSrc?: string };
   variant?: "demo" | "ugc";
+  /** Legacy muted autoplay — unused by UGC (click-to-play only). */
   autoPlayMuted?: boolean;
+  /** When set with playerId, only one video in the group may play. */
+  exclusiveGroup?: string;
+  playerId?: string;
   className?: string;
 };
 
-/** Native video with poster fallback, lazy load, and click-to-play controls. */
+/** Native video with poster overlay, lazy load, and click-to-play. */
 export function ProductVideo({
   asset,
   variant = "demo",
   autoPlayMuted = false,
+  exclusiveGroup,
+  playerId,
   className,
 }: ProductVideoProps) {
+  const reactId = useId();
+  const resolvedPlayerId = playerId ?? reactId;
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -29,6 +41,24 @@ export function ProductVideo({
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasError, setHasError] = useState(false);
   const posterOnly = hasError;
+
+  const pausePlayback = useCallback(() => {
+    const video = videoRef.current;
+    if (video && !video.paused) {
+      video.pause();
+    }
+    setIsPlaying(false);
+  }, []);
+
+  useEffect(() => {
+    if (!exclusiveGroup) {
+      return;
+    }
+
+    return registerExclusivePlayer(exclusiveGroup, resolvedPlayerId, {
+      pause: pausePlayback,
+    });
+  }, [exclusiveGroup, pausePlayback, resolvedPlayerId]);
 
   useEffect(() => {
     const node = containerRef.current;
@@ -81,6 +111,10 @@ export function ProductVideo({
     }
 
     if (video.paused) {
+      if (exclusiveGroup) {
+        claimExclusivePlayback(exclusiveGroup, resolvedPlayerId);
+      }
+
       try {
         video.controls = true;
         await video.play();
@@ -91,9 +125,8 @@ export function ProductVideo({
       return;
     }
 
-    video.pause();
-    setIsPlaying(false);
-  }, [posterOnly]);
+    pausePlayback();
+  }, [exclusiveGroup, pausePlayback, posterOnly, resolvedPlayerId]);
 
   const posterAsset = posterToImageAsset(
     asset.poster,
@@ -103,7 +136,8 @@ export function ProductVideo({
     asset.posterFallbackSrc,
   );
 
-  const showPosterOverlay = posterOnly || !isPlaying;
+  const showPoster = posterOnly || !isPlaying;
+  const posterFadeMs = variant === "ugc";
 
   return (
     <div
@@ -139,15 +173,26 @@ export function ProductVideo({
           </video>
         )}
 
-        {showPosterOverlay && (
+        <div
+          className={cn(
+            "product-video__poster",
+            posterFadeMs && "product-video__poster--fade",
+            !showPoster && "product-video__poster--hidden",
+          )}
+          aria-hidden={!showPoster}
+        >
           <ProductMedia asset={posterAsset} variant={variant === "ugc" ? "ugc" : "poster"} />
-        )}
+        </div>
 
-        {!isPlaying && (
-          <span className="product-video__play" aria-hidden="true">
-            <span className="product-video__play-icon" />
-          </span>
-        )}
+        <span
+          className={cn(
+            "product-video__play",
+            isPlaying && "product-video__play--hidden",
+          )}
+          aria-hidden="true"
+        >
+          <span className="product-video__play-icon" />
+        </span>
       </button>
     </div>
   );

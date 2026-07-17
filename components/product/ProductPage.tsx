@@ -34,7 +34,7 @@ export function ProductPage({ product }: ProductPageProps) {
           content={sections.hero}
           galleryImages={heroImages}
           reviewSummary={reviewSummary}
-          ctaLabel={sections.purchase.ctaLabel}
+          ctaLabel={sections.purchase.primaryCta?.label ?? sections.purchase.ctaLabel}
         />
       </LayoutDebugRegion>
       <ProblemSection content={sections.problem} />
@@ -52,9 +52,11 @@ export function ProductPage({ product }: ProductPageProps) {
           narrativeMedia={mediaKit.narrative}
         />
       </LayoutDebugRegion>
-      <LayoutDebugRegion label="BENEFITS" order={6}>
-        <BenefitsSection content={sections.benefits} />
-      </LayoutDebugRegion>
+      {sections.benefits?.enabled && (
+        <LayoutDebugRegion label="BENEFITS" order={6}>
+          <BenefitsSection content={sections.benefits} />
+        </LayoutDebugRegion>
+      )}
       {sections.comparison?.enabled && (
         <LayoutDebugRegion label="COMPARISON" order={7}>
           <ComparisonSection content={sections.comparison} />

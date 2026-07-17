@@ -1,4 +1,5 @@
 import type { MediaAsset, SectionBase, SectionVisibility, TextBlock } from "./shared";
+import type { PurchasePanelModules } from "./purchase";
 
 /**
  * Core story sections:
@@ -41,8 +42,8 @@ export interface ProductNarrativeSection extends SectionBase {
   chapters: ProductNarrativeChapter[];
 }
 
-/** Section 5 — Benefits: outcome-focused value */
-export interface BenefitsSection extends SectionBase {
+/** Section 5 — Benefits: outcome-focused value (optional module) */
+export interface BenefitsSection extends SectionBase, SectionVisibility {
   benefits: TextBlock[];
 }
 
@@ -88,12 +89,14 @@ export interface FaqItem {
   answer: string;
 }
 
-/** Section 9 — Purchase: "Am I ready to buy?" */
-export interface PurchaseSection extends SectionBase {
+/** Section 9 — Purchase: "Am I ready to buy?" (modular purchase panel) */
+export interface PurchaseSection extends SectionBase, PurchasePanelModules {
   description: string;
-  ctaLabel: string;
-  shippingNote?: string;
-  guaranteeNote?: string;
+  /**
+   * @deprecated Prefer `primaryCta.label`. Kept so Hero deep-links keep working
+   * during migration; if omitted, consumers should read `primaryCta.label`.
+   */
+  ctaLabel?: string;
 }
 
 /** All narrative sections that compose a product landing page. */
@@ -102,7 +105,8 @@ export interface ProductPageSections {
   problem: ProblemSection;
   solution: SolutionSection;
   productNarrative: ProductNarrativeSection;
-  benefits: BenefitsSection;
+  /** Omit or set `enabled: false` when the product has no outcome benefits block. */
+  benefits?: BenefitsSection;
   /** Omit or set `enabled: false` when the product has no meaningful comparison. */
   comparison?: ComparisonSection;
   reviews: ReviewsSection;

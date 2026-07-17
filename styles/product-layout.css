@@ -496,6 +496,21 @@
   z-index: 0;
 }
 
+.product-video__poster {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.product-video__poster--fade {
+  transition: opacity 180ms var(--ease-standard);
+}
+
+.product-video__poster--hidden {
+  opacity: 0;
+}
+
 .product-video--demo .product-media--poster {
   aspect-ratio: 16 / 9;
 }
@@ -509,6 +524,7 @@
 .product-video__play {
   position: absolute;
   inset: 0;
+  z-index: 3;
   display: grid;
   place-items: center;
   background: linear-gradient(
@@ -516,7 +532,16 @@
     color-mix(in srgb, var(--color-bg-inverse) 8%, transparent),
     color-mix(in srgb, var(--color-bg-inverse) 28%, transparent)
   );
+  opacity: 0.88;
   pointer-events: none;
+  transition:
+    opacity 220ms cubic-bezier(0.215, 0.61, 0.355, 1),
+    visibility 220ms;
+}
+
+.product-video__play--hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .product-video__play-icon {
@@ -524,6 +549,8 @@
   height: 3rem;
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-md);
+  transform: scale(1);
+  transition: transform 220ms cubic-bezier(0.215, 0.61, 0.355, 1);
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M8 5v14l11-7z'/%3E%3C/svg%3E");
   mask-size: 55%;
   mask-repeat: no-repeat;
@@ -554,6 +581,29 @@
 
 .product-ugc-card {
   height: 100%;
+  cursor: pointer;
+  transform: scale(1);
+  transform-origin: center center;
+  transition:
+    transform 220ms cubic-bezier(0.215, 0.61, 0.355, 1),
+    border-color 220ms cubic-bezier(0.215, 0.61, 0.355, 1),
+    box-shadow 220ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-ugc-card:hover {
+    transform: scale(1.015);
+    border-color: var(--color-border-strong);
+    box-shadow: var(--shadow-md);
+  }
+
+  .product-ugc-card:hover .product-video__play {
+    opacity: 1;
+  }
+
+  .product-ugc-card:hover .product-video__play-icon {
+    transform: scale(1.08);
+  }
 }
 
 /* ── Benefits ── */
@@ -759,6 +809,96 @@
 
 .product-purchase__trust .ui-text {
   color: var(--color-text-secondary);
+}
+
+.product-purchase__variants {
+  width: 100%;
+}
+
+.product-purchase__variant-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.product-purchase__variant-option {
+  min-height: var(--layout-touch-target-min);
+  padding-inline: var(--spacing-md);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-body);
+  cursor: pointer;
+  transition: var(--transition-interactive);
+}
+
+.product-purchase__variant-option--active {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+.product-purchase__variant-option--unavailable {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.product-purchase__variant-options--swatch {
+  gap: var(--spacing-sm);
+}
+
+.product-purchase__variant-option--swatch {
+  width: 2.25rem;
+  min-height: 2.25rem;
+  padding: 0;
+  border-radius: var(--radius-full);
+  position: relative;
+}
+
+.product-purchase__variant-swatch-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.product-purchase__quantity {
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.product-purchase__quantity-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-card);
+  padding-inline: var(--spacing-xs);
+}
+
+.product-purchase__quantity-btn {
+  width: var(--layout-touch-target-min);
+  height: var(--layout-touch-target-min);
+  border: none;
+  background: transparent;
+  color: var(--color-text-primary);
+  font-size: 1.125rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.product-purchase__quantity-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.product-purchase__quantity-value {
+  min-width: 1.5rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
 @media (min-width: 48rem) {
