@@ -5,7 +5,7 @@
 @theme inline {
   --font-sans: var(--font-family-sans);
 
-  --color-background: var(--color-bg-primary);
+  --color-background: var(--color-canvas);
   --color-foreground: var(--color-text-primary);
   --color-muted: var(--color-text-muted);
   --color-border: var(--color-border-default);
@@ -20,6 +20,7 @@
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
 }
 
 /* ── Global base — warm paper canvas ── */
@@ -31,7 +32,7 @@
   font-weight: var(--font-weight-body);
   letter-spacing: var(--letter-spacing-body);
   color: var(--color-text-primary);
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-canvas);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -56,9 +57,9 @@
 
 /* ── Header shell ── */
 .ui-site-header {
-  border-bottom: var(--border-width-default) solid var(--color-border-subtle);
+  border-bottom: var(--border-width-default) solid var(--color-border-divider);
   padding-block: var(--spacing-md);
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-canvas);
 }
 
 .ui-site-header__inner {
@@ -98,7 +99,7 @@
 }
 
 .ui-site-footer {
-  border-top: var(--border-width-default) solid var(--color-border-subtle);
+  border-top: var(--border-width-default) solid var(--color-border-divider);
   padding-block: var(--layout-section-spacing-y);
   background-color: var(--color-bg-secondary);
   margin-top: auto;

@@ -15,19 +15,25 @@ export const problem: ProblemSection = {
     "If you often dry your hair with one hand and try to shape it with another, you already know the friction: extra steps, extra heat exposure, and results that vary day to day.",
   painPoints: [
     {
+      id: "two-tools",
       title: "Two tools, one bathroom counter",
       description:
         "A separate dryer and round brush means more cord juggling, more arm fatigue, and more time before you can leave the house.",
+      icon: "/images/problem/problem-tool.svg",
     },
     {
+      id: "heat-without-direction",
       title: "Heat without direction",
       description:
         "Air alone can dry hair quickly, but it does not always help you guide the shape you want — especially around the crown and ends.",
+      icon: "/images/problem/problem-airflow.svg",
     },
     {
+      id: "inconsistent-finish",
       title: "Inconsistent finish",
       description:
         "When styling depends on technique and timing, it is easy to end up with flat roots, frizz at the ends, or volume in the wrong places.",
+      icon: "/images/problem/problem-finish.svg",
     },
   ],
 };

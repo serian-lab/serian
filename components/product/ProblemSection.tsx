@@ -22,29 +22,40 @@ export function ProblemSection({ content }: ProblemSectionProps) {
       >
         <Container width="content">
           <div className="serian-i06-problem__frame">
-            <div className="serian-i06-problem__intro-block">
+            <div className="serian-i06-problem__intro-block problem-intro">
               <Text as="p" variant="label" className="serian-i06-section-index">
                 The context
               </Text>
               <Heading level={2} variant="heading" className="serian-i06-problem__headline">
                 {content.headline}
               </Heading>
-              <Text className="serian-i06-problem__intro">{content.introduction}</Text>
+              <Text className="serian-i06-problem__intro ui-text--lead">{content.introduction}</Text>
             </div>
 
             <ol className="serian-i06-problem__list">
               {content.painPoints.map((point, index) => (
-                <li key={point.title} className="serian-i06-problem__item">
+                <li key={point.id} className="serian-i06-problem__item">
                   <span className="serian-i06-problem__index" aria-hidden="true">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <div>
+                  <div className="serian-i06-problem__icon-wrap" aria-hidden="true">
+                    {point.icon ? (
+                      // Local SVG placeholders — path-driven for future asset swap.
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={point.icon}
+                        alt=""
+                        width={30}
+                        height={30}
+                        className="serian-i06-problem__icon"
+                      />
+                    ) : null}
+                  </div>
+                  <div className="serian-i06-problem__content">
                     <Heading level={3} variant="title" className="serian-i06-problem__item-title">
                       {point.title}
                     </Heading>
-                    <Text variant="caption" className="serian-i06-problem__item-body">
-                      {point.description}
-                    </Text>
+                    <Text className="serian-i06-problem__item-body">{point.description}</Text>
                   </div>
                 </li>
               ))}

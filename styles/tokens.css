@@ -1,6 +1,7 @@
 /**
- * Serian Design System V1 — core tokens.
- * Warm editorial material language. Single source of truth for all visual values.
+ * Serian Design System — Surface Language Foundation (Iteration 15).
+ * Single source of truth for radius, border, shadow, and surface material.
+ * Layout, typography, motion timings, and spacing live elsewhere.
  */
 
 :root {
@@ -24,22 +25,49 @@
   --color-wood-800: #2f2720;
 
   /* ── Semantic text ── */
-  --color-text-primary: var(--color-neutral-900);
-  --color-text-secondary: var(--color-neutral-600);
-  --color-text-muted: var(--color-neutral-500);
+  --color-text-primary: #171513;
+  --color-text-secondary: #625d58;
+  --color-text-muted: #8a837c;
   --color-text-inverse: var(--color-neutral-50);
 
-  /* ── Semantic backgrounds ── */
-  --color-bg-primary: #f6f4ef;
+  /* ── Action (primary CTA) ── */
+  --color-action-primary-bg: #26221f;
+  --color-action-primary-bg-hover: #171513;
+  --color-action-primary-text: #ffffff;
+
+  /*
+   * ── Surface Language ──
+   * Canvas → Surface → Elevated → Floating → Sunken
+   * Never paint every component pure white.
+   */
+  --color-page-canvas: #f7f4ef;
+  --color-canvas: var(--color-page-canvas);
+  --color-surface: #f8f6f1;
+  --color-surface-elevated: #fbfaf7;
+  --color-surface-floating: #fcfbf9;
+  --color-surface-sunken: rgb(20 20 20 / 0.035);
+  --color-surface-control: rgba(255, 255, 255, 0.88);
+  --color-surface-primary: #ffffff;
+
+  /* Legacy bg aliases → surface ladder */
+  --color-bg-primary: var(--color-canvas);
   --color-bg-secondary: var(--color-neutral-150);
   --color-bg-muted: #ebe8e1;
   --color-bg-inverse: var(--color-neutral-900);
-  --color-surface-elevated: #faf9f6;
 
-  /* ── Semantic borders ── */
-  --color-border-default: var(--color-neutral-200);
-  --color-border-subtle: rgb(26 24 22 / 0.06);
-  --color-border-strong: var(--color-neutral-300);
+  /*
+   * ── Border Language ──
+   * Borders layer — they are never the visual subject.
+   * Hover raises opacity only; never thickness.
+   */
+  --color-border-primary: rgb(20 20 20 / 0.08);
+  --color-border-secondary: rgb(20 20 20 / 0.05);
+  --color-border-divider: rgb(20 20 20 / 0.04);
+  --color-border-hover: rgb(20 20 20 / 0.12);
+
+  --color-border-default: var(--color-border-primary);
+  --color-border-subtle: rgba(24, 20, 16, 0.06);
+  --color-border-strong: var(--color-border-hover);
   --color-border-focus: var(--color-wood-600);
 
   /* ── Accent & interactive ── */
@@ -50,27 +78,60 @@
   --color-interactive-text: var(--color-text-inverse);
   --color-interactive-border: var(--color-accent);
 
-  /* ── Radius system V1 ── */
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1rem;
+  /*
+   * ── Radius System ──
+   * Scale: xs → 2xl. Components use semantic aliases only.
+   */
+  --radius-xs: 0.5rem; /* 8 */
+  --radius-sm: 0.75rem; /* 12 */
+  --radius-md: 1rem; /* 16 */
+  --radius-lg: 1.25rem; /* 20 */
+  --radius-xl: 1.5rem; /* 24 */
+  --radius-2xl: 2rem; /* 32 */
   --radius-full: 999px;
-  --radius-button: var(--radius-md);
+
   --radius-card: var(--radius-md);
+  --radius-panel: var(--radius-lg);
+  --radius-gallery: var(--radius-xl);
+  --radius-button: var(--radius-md);
+  --radius-chip: var(--radius-sm);
+  --radius-thumbnail: var(--radius-sm);
+  --radius-control: var(--radius-xs);
+  --radius-hero: var(--radius-2xl);
 
   /* ── Border width ── */
   --border-width-default: 1px;
-  --border-width-strong: 2px;
+  --border-width-strong: 1.5px;
 
-  /* ── Shadow system V1 — border first, shadow second ── */
-  --shadow-none: none;
-  --shadow-surface: none;
-  --shadow-sm: 0 1px 2px rgb(26 24 22 / 0.03);
-  --shadow-md: 0 2px 6px rgb(26 24 22 / 0.04);
-  --shadow-lg: 0 4px 12px rgb(26 24 22 / 0.05);
-  --shadow-card: var(--shadow-none);
-  --shadow-card-hover: var(--shadow-sm);
+  /*
+   * ── Shadow Language ──
+   * Four levels. Larger + softer — not darker.
+   */
+  --shadow-surface-0: none;
+  --shadow-surface-1: 0 4px 14px rgb(20 20 20 / 0.055);
+  --shadow-surface-2: 0 10px 28px rgb(20 20 20 / 0.06);
+  --shadow-surface-3: 0 18px 50px rgb(20 20 20 / 0.065);
+
+  --shadow-none: var(--shadow-surface-0);
+  --shadow-surface: var(--shadow-surface-1);
+  --shadow-sm: var(--shadow-surface-1);
+  --shadow-md: var(--shadow-surface-2);
+  --shadow-lg: var(--shadow-surface-3);
+  --shadow-card: var(--shadow-surface-1);
+  --shadow-card-hover: var(--shadow-surface-2);
+  --shadow-button: var(--shadow-surface-1);
+  --shadow-button-hover: var(--shadow-surface-2);
+  --shadow-floating: var(--shadow-surface-2);
+  --shadow-elevated: var(--shadow-surface-2);
+
+  /*
+   * ── Hover Language ──
+   * One interaction dialect for cards and buttons.
+   */
+  --hover-card-translate-y: -2px;
+  --hover-card-scale: 1.008;
+  --hover-button-translate-y: -1px;
+  --hover-button-brightness: 1.02;
 
   /* ── Rating ── */
   --color-rating-active: var(--color-text-primary);
@@ -80,7 +141,7 @@
   --opacity-disabled: 0.5;
   --opacity-muted: 0.72;
 
-  /* ── Motion system V1 — 150–200ms, no scale/translate ── */
+  /* ── Motion timings (unchanged) — transform allowed for surface hover only ── */
   --duration-fast: 150ms;
   --duration-normal: 200ms;
   --duration-slow: 200ms;
@@ -90,7 +151,9 @@
     border-color var(--duration-fast) var(--ease-standard),
     color var(--duration-fast) var(--ease-standard),
     box-shadow var(--duration-normal) var(--ease-standard),
-    opacity var(--duration-normal) var(--ease-standard);
+    opacity var(--duration-normal) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard),
+    filter var(--duration-fast) var(--ease-standard);
 
   /* ── Paper material ── */
   --paper-texture-opacity: 0.022;
