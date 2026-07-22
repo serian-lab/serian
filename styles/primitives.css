@@ -93,6 +93,14 @@
   letter-spacing: var(--letter-spacing-body);
 }
 
+.ui-text--lead {
+  font-size: var(--font-size-body-large);
+  line-height: var(--line-height-body-large);
+  font-weight: var(--font-weight-body);
+  letter-spacing: var(--letter-spacing-subtitle);
+  color: var(--color-text-secondary);
+}
+
 .ui-text--caption {
   font-size: var(--font-size-caption);
   line-height: var(--line-height-caption);
@@ -112,15 +120,32 @@
 
 /* ── Surface ── */
 .ui-surface {
-  background-color: var(--color-surface-elevated);
+  background-color: var(--color-surface);
   border: var(--border-width-default) solid var(--color-border-default);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-surface);
 }
 
-/* ── Card V1 — warm surface, thin border, no default shadow ── */
+.ui-surface--elevated {
+  background-color: var(--color-surface-elevated);
+  box-shadow: var(--shadow-elevated);
+}
+
+.ui-surface--floating {
+  background-color: var(--color-surface-floating);
+  box-shadow: var(--shadow-floating);
+}
+
+.ui-surface--sunken {
+  background-color: var(--color-surface-sunken);
+  box-shadow: var(--shadow-none);
+  border-color: var(--color-border-secondary);
+}
+
+/* ── Card — unified material language ── */
 .ui-card {
   padding: var(--layout-product-item-padding);
-  background-color: var(--color-surface-elevated);
+  background-color: var(--color-surface);
   border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
@@ -128,8 +153,9 @@
 }
 
 .ui-card--flat {
-  box-shadow: none;
+  box-shadow: var(--shadow-none);
   background-color: transparent;
+  border-color: transparent;
 }
 
 .ui-card--interactive {
@@ -137,11 +163,12 @@
 }
 
 .ui-card--interactive:hover {
-  border-color: var(--color-border-strong);
+  border-color: var(--color-border-hover);
   box-shadow: var(--shadow-card-hover);
+  transform: translateY(var(--hover-card-translate-y)) scale(var(--hover-card-scale));
 }
 
-/* ── Button V1 ── */
+/* ── Button ── */
 .ui-button {
   display: inline-flex;
   align-items: center;
@@ -156,6 +183,7 @@
   background-color: var(--color-interactive-bg);
   border: var(--border-width-default) solid transparent;
   border-radius: var(--radius-button);
+  box-shadow: var(--shadow-button);
   padding: var(--spacing-md) var(--spacing-xl);
   cursor: pointer;
   transition: var(--transition-interactive);
@@ -167,6 +195,9 @@
 
 .ui-button:hover:not(:disabled) {
   background-color: var(--color-interactive-bg-hover);
+  box-shadow: var(--shadow-button-hover);
+  transform: translateY(var(--hover-button-translate-y));
+  filter: brightness(var(--hover-button-brightness));
 }
 
 .ui-button:focus-visible {
@@ -183,12 +214,15 @@
   color: var(--color-accent);
   background-color: transparent;
   border-color: var(--color-border-default);
+  box-shadow: var(--shadow-none);
 }
 
 .ui-button--secondary:hover:not(:disabled) {
   color: var(--color-accent-hover);
   background-color: transparent;
-  border-color: var(--color-accent);
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-button);
+  filter: none;
 }
 
 /* ── Text link V1 — Hero, Problem, reading entry points ── */
@@ -216,14 +250,14 @@
   border-radius: var(--radius-sm);
 }
 
-/* ── Divider V1 ── */
+/* ── Divider ── */
 .ui-divider {
   border: none;
-  border-block-start: var(--border-width-default) solid var(--color-border-default);
+  border-block-start: var(--border-width-default) solid var(--color-border-divider);
   margin: 0;
 }
 
-/* ── Tag V1 — trust badges, metadata chips ── */
+/* ── Tag — trust badges, metadata chips ── */
 .ui-tag {
   display: inline-flex;
   align-items: center;
@@ -231,9 +265,9 @@
   font-size: var(--font-size-caption);
   line-height: var(--line-height-caption);
   color: var(--color-text-secondary);
-  background-color: var(--color-surface-elevated);
-  border: var(--border-width-default) solid var(--color-border-default);
-  border-radius: var(--radius-full);
+  background-color: var(--color-surface-sunken);
+  border: var(--border-width-default) solid var(--color-border-secondary);
+  border-radius: var(--radius-chip);
   transition: var(--transition-interactive);
 }
 

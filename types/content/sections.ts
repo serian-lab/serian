@@ -15,9 +15,17 @@ export interface HeroSection extends SectionBase {
 }
 
 /** Section 2 — Problem: "Why should I care?" */
+export interface ProblemPainPoint {
+  id: string;
+  title: string;
+  description: string;
+  /** Optional path to a local icon asset (e.g. `/images/problem/….svg`). */
+  icon?: string;
+}
+
 export interface ProblemSection extends SectionBase {
   introduction: string;
-  painPoints: TextBlock[];
+  painPoints: ProblemPainPoint[];
 }
 
 /** Section 3 — Solution: "How does this solve my problem?" */

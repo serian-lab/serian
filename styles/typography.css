@@ -1,48 +1,58 @@
 /**
  * Typography tokens V1 — hierarchy, spacing, weight, tracking.
  * No new font families. System stack only.
+ * Semantic roles: section heading, title, body, body-large, caption, label.
  */
 
 :root {
   --font-family-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Display — hero headline */
+  /* Display — hero headline (local Hero CSS may still override) */
   --font-size-display: clamp(1.875rem, 4vw, 2.875rem);
   --line-height-display: 1.12;
   --font-weight-display: 600;
   --letter-spacing-display: -0.03em;
 
-  /* Heading — section headlines */
-  --font-size-heading: clamp(1.375rem, 2.5vw, 2.125rem);
-  --line-height-heading: 1.2;
+  /*
+   * Section Heading — Landing page section titles
+   * System stack typically lacks 650 → use 600.
+   */
+  --font-size-section-heading: clamp(2.375rem, 3vw, 3rem);
+  --line-height-section-heading: 1.02;
   --font-weight-heading: 600;
-  --letter-spacing-heading: -0.025em;
+  --letter-spacing-heading: -0.04em;
+  /* Alias used by .ui-heading--heading */
+  --font-size-heading: var(--font-size-section-heading);
+  --line-height-heading: var(--line-height-section-heading);
 
-  /* Title — card titles and sub-sections */
-  --font-size-title: clamp(1rem, 1.5vw, 1.125rem);
-  --line-height-title: 1.35;
+  /* Title — card / item titles */
+  --font-size-title: 1.125rem;
+  --line-height-title: 1.3;
   --font-weight-title: 600;
   --letter-spacing-title: -0.015em;
 
-  /* Subtitle — supporting copy */
-  --font-size-subtitle: clamp(1.0625rem, 1.4vw, 1.1875rem);
-  --line-height-subtitle: 1.55;
+  /* Subtitle — supporting lead (legacy alias → body-large) */
+  --font-size-body-large: 1.125rem;
+  --line-height-body-large: 1.62;
+  --font-weight-body-strong: 500;
+  --font-size-subtitle: var(--font-size-body-large);
+  --line-height-subtitle: var(--line-height-body-large);
   --font-weight-subtitle: 400;
   --letter-spacing-subtitle: -0.008em;
 
   /* Body */
   --font-size-body: 1rem;
-  --line-height-body: 1.65;
+  --line-height-body: 1.6;
   --font-weight-body: 400;
   --letter-spacing-body: -0.003em;
 
-  /* Caption */
+  /* Caption — auxiliary (do not enlarge with body) */
   --font-size-caption: 0.875rem;
   --line-height-caption: 1.55;
   --font-weight-caption: 400;
   --letter-spacing-caption: 0.005em;
 
-  /* Label — UI metadata */
+  /* Label — UI metadata / eyebrows (do not enlarge) */
   --font-size-label: 0.6875rem;
   --line-height-label: 1.45;
   --font-weight-label: 500;
@@ -52,5 +62,6 @@
 @media (min-width: 48rem) {
   :root {
     --font-size-body: 1.0625rem;
+    --font-size-body-large: 1.125rem;
   }
 }

@@ -99,9 +99,9 @@
 
 .brand-trust-banner__badge {
   padding: var(--spacing-xs) var(--spacing-sm);
-  border: var(--border-width-default) solid var(--color-border-default);
-  border-radius: var(--radius-full);
-  background-color: var(--color-surface-elevated);
+  border: var(--border-width-default) solid var(--color-border-secondary);
+  border-radius: var(--radius-chip);
+  background-color: var(--color-surface-sunken);
   transition: var(--transition-interactive);
 }
 

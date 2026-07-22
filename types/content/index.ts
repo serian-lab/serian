@@ -33,6 +33,7 @@ export type {
   FaqItem,
   FaqSection,
   HeroSection,
+  ProblemPainPoint,
   ProblemSection,
   ProductNarrativeChapter,
   ProductNarrativeSection,

@@ -7,7 +7,7 @@
   --narrative-ink-muted: var(--color-text-muted);
   --narrative-ink: var(--color-text-primary);
   --narrative-ink-secondary: var(--color-text-secondary);
-  --narrative-rule: var(--color-border-default);
+  --narrative-rule: var(--color-border-secondary);
   --narrative-surface: var(--color-surface-elevated);
   /* Tight gap — neighbors are peeks, not equal columns. */
   --narrative-gap: clamp(0.5rem, 1.2vw, 0.85rem);
@@ -101,7 +101,7 @@
   background: var(--narrative-surface);
   color: inherit;
   text-align: left;
-  box-shadow: var(--shadow-none);
+  box-shadow: var(--shadow-card);
   /* Runtime sets scale / opacity / shadow; CSS defaults match side peek. */
   transform: scale(var(--narrative-side-scale));
   opacity: var(--narrative-side-opacity);
@@ -118,7 +118,7 @@
   flex: 0 0 62%;
   width: 100%;
   min-height: 0;
-  background: var(--color-bg-secondary);
+  background: var(--color-surface-sunken);
   overflow: hidden;
 }
 
@@ -160,11 +160,11 @@
 
 @media (min-width: 48rem) {
   .product-narrative__card--active:hover .product-narrative__media .product-media {
-    transform: translateY(-3px);
+    transform: translateY(var(--hover-card-translate-y)) scale(var(--hover-card-scale));
   }
 
   .product-narrative__media .product-media {
-    transition: transform var(--duration-normal) var(--ease-standard);
+    transition: var(--transition-interactive);
   }
 
   .product-media--narrative {
