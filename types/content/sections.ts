@@ -3,7 +3,7 @@ import type { PurchasePanelModules } from "./purchase";
 
 /**
  * Core story sections:
- * Hero → Problem → Solution → Product Narrative → Benefits → Reviews → FAQ → Purchase
+ * Hero → Problem → Product Narrative → Benefits → Reviews → FAQ → Purchase
  *
  * Optional modules (see ProductPage): Demo, Comparison, UGC, and future add-ons.
  */
@@ -26,13 +26,6 @@ export interface ProblemPainPoint {
 export interface ProblemSection extends SectionBase {
   introduction: string;
   painPoints: ProblemPainPoint[];
-}
-
-/** Section 3 — Solution: "How does this solve my problem?" */
-export interface SolutionSection extends SectionBase {
-  introduction: string;
-  highlights: TextBlock[];
-  demonstrationImage?: MediaAsset;
 }
 
 /** One design decision in the product narrative — not a feature listing. */
@@ -111,7 +104,6 @@ export interface PurchaseSection extends SectionBase, PurchasePanelModules {
 export interface ProductPageSections {
   hero: HeroSection;
   problem: ProblemSection;
-  solution: SolutionSection;
   productNarrative: ProductNarrativeSection;
   /** Omit or set `enabled: false` when the product has no outcome benefits block. */
   benefits?: BenefitsSection;

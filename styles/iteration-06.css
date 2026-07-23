@@ -710,7 +710,9 @@
    ══════════════════════════════════════ */
 
 .serian-i06-problem.ui-section {
-  padding-block: clamp(var(--spacing-3xl), 8vw, 6rem);
+  /* Keep top breathing room; tighten only the Problem → Demo gap */
+  padding-block-start: clamp(var(--spacing-3xl), 8vw, 6rem);
+  padding-block-end: clamp(32px, 2.5vw, 36px);
   background: var(--color-page-canvas);
 }
 
@@ -844,6 +846,10 @@
 }
 
 @media (max-width: 47.99rem) {
+  .serian-i06-problem.ui-section {
+    padding-block-end: clamp(32px, 6vw, 36px);
+  }
+
   .serian-i06-problem__frame {
     grid-template-columns: 1fr;
     row-gap: 36px;
@@ -880,3 +886,125 @@
     height: 24px;
   }
 }
+
+/* ══════════════════════════════════════
+   DEMO Spacing Pass 02 — tighten Problem → Demo
+   and Demo internal vertical density only
+   ══════════════════════════════════════ */
+
+.product-section.product-demo-section.ui-section {
+  background: var(--color-page-canvas);
+  margin-block-start: 0;
+  padding-block-start: clamp(36px, 3vw, 40px);
+  padding-block-end: clamp(56px, 5vw, 80px);
+}
+
+.product-demo__heading {
+  gap: 8px;
+}
+
+.product-demo__media {
+  margin-top: 22px;
+}
+
+.product-demo__highlight {
+  padding-block: 14px;
+  min-height: auto;
+}
+
+@media (min-width: 48rem) {
+  .product-demo__media {
+    margin-top: clamp(24px, 2.5vw, 32px);
+  }
+
+  .product-demo__highlight {
+    padding-block: 14px;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .product-section.product-demo-section.ui-section {
+    padding-block-start: clamp(28px, 5vw, 36px);
+  }
+}
+
+/* ══════════════════════════════════════
+   DEMO Media Pass 03 — YouTube 16:9 + rounded crop
+   Outer frame owns ratio / radius / overflow only.
+   ══════════════════════════════════════ */
+
+.product-demo__media {
+  position: relative;
+  width: 100%;
+  max-width: 70rem;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-media);
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-surface-primary);
+}
+
+/* Fill the frame — do not nest a second aspect-ratio box */
+.product-demo__media .product-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.product-demo__media .product-video__trigger {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.product-demo__media .product-video__element,
+.product-demo__media .product-video__poster,
+.product-demo__media .product-media,
+.product-demo__media .product-media__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+}
+
+.product-demo__media .product-media {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  overflow: hidden;
+}
+
+.product-demo__media .product-video__play {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.product-demo__media--static .product-media,
+.product-demo__media--static .product-media__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+}
+
+

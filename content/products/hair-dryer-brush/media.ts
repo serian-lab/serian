@@ -171,6 +171,7 @@ export const mediaKit: ProductMediaKit = {
   ],
   demo: {
     enabled: true,
+    eyebrow: "PRODUCT DEMO",
     headline: "See it in action",
     description:
       "Watch how the Serian Hot Air Brush dries and shapes each section in one continuous motion.",
@@ -182,6 +183,23 @@ export const mediaKit: ProductMediaKit = {
       1280,
       720,
     ),
+    highlights: [
+      {
+        id: "continuous-pass",
+        label: "One continuous pass",
+        icon: "/images/demo/demo-airflow.svg",
+      },
+      {
+        id: "root-to-tip",
+        label: "Smooth from root to tip",
+        icon: "/images/demo/demo-smooth.svg",
+      },
+      {
+        id: "natural-finish",
+        label: "Shiny, natural finish",
+        icon: "/images/demo/demo-finish.svg",
+      },
+    ],
   },
   ugc: {
     enabled: true,
@@ -233,13 +251,6 @@ export const mediaKit: ProductMediaKit = {
     ],
   },
   assets: {
-    demonstration: image(
-      `${base}/lifestyle/lifestyle-bathroom.png`,
-      `${base}/demonstration/demonstration.svg`,
-      "Person using the hot air brush to smooth a section of hair near the crown",
-      1200,
-      900,
-    ),
     packaging: image(
       `${base}/packaging/packaging.png`,
       `${base}/packaging/packaging.svg`,
@@ -266,7 +277,6 @@ export const productMediaRegistry = {
 /** Convenience accessors for narrative sections that reference single assets. */
 export const media = {
   hero: mediaKit.hero.images[mediaKit.hero.primaryIndex ?? 0],
-  demonstration: mediaKit.assets!.demonstration!,
   narrativeShape: mediaKit.narrative[0].image!,
   narrativeControl: mediaKit.narrative[1].image!,
   narrativeBalance: mediaKit.narrative[2].image!,

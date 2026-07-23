@@ -13,7 +13,6 @@ type ProductMediaVariant =
   | "hero"
   | "feature"
   | "narrative"
-  | "demonstration"
   | "thumbnail"
   | "poster"
   | "ugc";
@@ -28,7 +27,6 @@ const sizesByVariant: Record<ProductMediaVariant, string> = {
   hero: "(max-width: 48rem) 100vw, 480px",
   feature: "(max-width: 48rem) 100vw, 320px",
   narrative: "(max-width: 48rem) 100vw, 50vw",
-  demonstration: "(max-width: 48rem) 100vw, 640px",
   thumbnail: "72px",
   poster: "(max-width: 48rem) 100vw, 720px",
   ugc: "(max-width: 48rem) 45vw, 240px",

@@ -37,11 +37,25 @@ export interface FeatureMediaRef {
   layout?: FeatureMediaLayout;
 }
 
+/** Compact value label under the Demo media frame. */
+export interface DemoHighlight {
+  id: string;
+  label: string;
+  /** Optional path to a local icon asset (e.g. `/images/demo/….svg`). */
+  icon?: string;
+}
+
 /** Product demonstration video block. */
 export interface DemoVideoMedia extends SectionVisibility {
+  eyebrow?: string;
   headline: string;
   description?: string;
-  video: VideoMediaAsset;
+  /**
+   * Native video with poster. Omit or leave `src` empty for a static poster-only
+   * evidence frame (no play control).
+   */
+  video?: VideoMediaAsset;
+  highlights?: DemoHighlight[];
 }
 
 export type UgcVideoStyle =
@@ -67,7 +81,6 @@ export interface UgcShowcaseMedia extends SectionVisibility {
 
 /** Shared static assets referenced outside dedicated sections. */
 export interface ProductMediaAssets {
-  demonstration?: ImageMediaAsset;
   packaging?: ImageMediaAsset;
   og?: ImageMediaAsset;
 }

@@ -138,6 +138,12 @@ export function ProductVideo({
 
   const showPoster = posterOnly || !isPlaying;
   const posterFadeMs = variant === "ugc";
+  const playLabel =
+    variant === "demo"
+      ? "Play product demonstration"
+      : isPlaying
+        ? "Pause video"
+        : "Play video";
 
   return (
     <div
@@ -148,7 +154,7 @@ export function ProductVideo({
         type="button"
         className="product-video__trigger"
         onClick={() => void togglePlayback()}
-        aria-label={posterOnly ? asset.alt : isPlaying ? "Pause video" : "Play video"}
+        aria-label={posterOnly ? asset.alt : isPlaying ? "Pause video" : playLabel}
         disabled={posterOnly}
       >
         {!posterOnly && isVisible && (
@@ -184,15 +190,27 @@ export function ProductVideo({
           <ProductMedia asset={posterAsset} variant={variant === "ugc" ? "ugc" : "poster"} />
         </div>
 
-        <span
-          className={cn(
-            "product-video__play",
-            isPlaying && "product-video__play--hidden",
-          )}
-          aria-hidden="true"
-        >
-          <span className="product-video__play-icon" />
-        </span>
+        {!posterOnly ? (
+          <span
+            className={cn(
+              "product-video__play",
+              isPlaying && "product-video__play--hidden",
+            )}
+            aria-hidden="true"
+          >
+            <span className="product-video__play-icon">
+              <svg
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path fill="currentColor" d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+          </span>
+        ) : null}
       </button>
     </div>
   );

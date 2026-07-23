@@ -10,6 +10,7 @@ export type {
 
 export type {
   NarrativeChapterMediaRef,
+  DemoHighlight,
   DemoVideoMedia,
   FeatureMediaLayout,
   FeatureMediaRef,
@@ -42,7 +43,6 @@ export type {
   Review,
   ReviewsSection,
   ReviewSummary,
-  SolutionSection,
 } from "./sections";
 
 export type {

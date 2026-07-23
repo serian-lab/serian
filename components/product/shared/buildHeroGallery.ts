@@ -23,7 +23,6 @@ export function buildHeroGallery(
 
   add(sections.hero.primaryImage);
   sections.hero.secondaryImages?.forEach(add);
-  add(sections.solution.demonstrationImage);
   sections.productNarrative.chapters.forEach((chapter) => add(chapter.image));
 
   return images;

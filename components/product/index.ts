@@ -7,4 +7,3 @@ export { ProblemSection } from "./ProblemSection";
 export { ProductPage } from "./ProductPage";
 export { PurchaseSection } from "./PurchaseSection";
 export { ReviewsSection } from "./ReviewsSection";
-export { SolutionSection } from "./SolutionSection";

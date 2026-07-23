@@ -93,6 +93,8 @@
   --radius-card: var(--radius-md);
   --radius-panel: var(--radius-lg);
   --radius-gallery: var(--radius-xl);
+  /* Literal value: Tailwind v4 overrides --radius-md; keep media radius stable. */
+  --radius-media: 1rem;
   --radius-button: var(--radius-md);
   --radius-chip: var(--radius-sm);
   --radius-thumbnail: var(--radius-sm);

@@ -16,3 +16,11 @@
 @import "./brand-layout.css";
 
 @import "tailwindcss";
+
+/*
+ * Tailwind v4 theme owns --radius-md / --radius-xl etc.
+ * Re-assert semantic media radius after the framework import.
+ */
+:root {
+  --radius-media: 1rem;
+}

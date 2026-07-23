@@ -11,7 +11,6 @@ import { HeroSection } from "./HeroSection";
 import { ProblemSection } from "./ProblemSection";
 import { PurchaseSection } from "./PurchaseSection";
 import { ReviewsSection } from "./ReviewsSection";
-import { SolutionSection } from "./SolutionSection";
 import { UgcShowcaseSection } from "./UgcShowcaseSection";
 
 type ProductPageProps = {
@@ -38,11 +37,8 @@ export function ProductPage({ product }: ProductPageProps) {
         />
       </LayoutDebugRegion>
       <ProblemSection content={sections.problem} />
-      <LayoutDebugRegion label="SOLUTION" order={4}>
-        <SolutionSection content={sections.solution} />
-      </LayoutDebugRegion>
       {mediaKit.demo && (
-        <LayoutDebugRegion label="DEMO">
+        <LayoutDebugRegion label="DEMO" order={4}>
           <DemoVideoSection content={mediaKit.demo} />
         </LayoutDebugRegion>
       )}
@@ -79,4 +75,3 @@ export function ProductPage({ product }: ProductPageProps) {
     </article>
   );
 }
-

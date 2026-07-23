@@ -3,10 +3,7 @@ import type {
   ComparisonSection,
   ProblemSection,
   ProductNarrativeSection,
-  SolutionSection,
 } from "@/types/content";
-
-import { media } from "./media";
 
 export const problem: ProblemSection = {
   id: "problem",
@@ -36,31 +33,6 @@ export const problem: ProblemSection = {
       icon: "/images/problem/problem-finish.svg",
     },
   ],
-};
-
-export const solution: SolutionSection = {
-  id: "solution",
-  headline: "Dry and guide each section in the same motion",
-  introduction:
-    "The Serian Hot Air Brush sends warm air through a shaped barrel with built-in bristles. You hold the section, glide from root to tip, and let the combination of airflow and tension do the work.",
-  highlights: [
-    {
-      title: "Airflow follows the barrel",
-      description:
-        "Heat is directed along the hair strand as the bristles hold tension, which helps you smooth and shape while drying rather than after.",
-    },
-    {
-      title: "One continuous pass",
-      description:
-        "Instead of drying completely and then restyling, you can work section by section with a single tool and a clearer routine.",
-    },
-    {
-      title: "Built for everyday use",
-      description:
-        "The handle is sized for at-home styling, with controls you can adjust without stopping mid-section.",
-    },
-  ],
-  demonstrationImage: media.demonstration,
 };
 
 export const productNarrative: ProductNarrativeSection = {

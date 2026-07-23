@@ -16,7 +16,7 @@ function getDemoTargets(root: HTMLElement): HTMLElement[] {
 
 /**
  * Demo scroll reveal — one timeline, one tween, one ScrollTrigger.
- * Video is not animated separately; the whole section enters as one block.
+ * Targets the editorial `.product-demo` frame (header + media + highlights).
  */
 export function useDemoReveal() {
   useSectionReveal(
