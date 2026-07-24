@@ -1,11 +1,12 @@
-import type { MediaAsset, SectionBase, SectionVisibility, TextBlock } from "./shared";
+import type { ImageMediaAsset } from "./media";
+import type { MediaAsset, SectionBase, SectionVisibility } from "./shared";
 import type { PurchasePanelModules } from "./purchase";
 
 /**
  * Core story sections:
- * Hero → Problem → Product Narrative → Benefits → Reviews → FAQ → Purchase
+ * Hero → Problem → Product Narrative → Comparison → Reviews → FAQ → Purchase
  *
- * Optional modules (see ProductPage): Demo, Comparison, UGC, and future add-ons.
+ * Optional modules (see ProductPage): Demo, UGC, and future add-ons.
  */
 
 /** Section 1 — Attention: "What is this?" */
@@ -31,6 +32,8 @@ export interface ProblemSection extends SectionBase {
 /** One design decision in the product narrative — not a feature listing. */
 export interface ProductNarrativeChapter {
   id: string;
+  /** Optional topic label shown in the card header (e.g. "THE SHAPE"). */
+  eyebrow?: string;
   title: string;
   body: string;
   image?: MediaAsset;
@@ -43,20 +46,33 @@ export interface ProductNarrativeSection extends SectionBase {
   chapters: ProductNarrativeChapter[];
 }
 
-/** Section 5 — Benefits: outcome-focused value (optional module) */
-export interface BenefitsSection extends SectionBase, SectionVisibility {
-  benefits: TextBlock[];
+/** One side of a product-vs-alternative comparison. */
+export interface ComparisonSide {
+  label: string;
+  sublabel?: string;
+  /** Optional decorative image — product column / header only. */
+  image?: ImageMediaAsset;
 }
 
-/** Optional module — Comparison: "Does it actually work?" (Evidence) */
+/** Optional module — Comparison: structural workflow differences (Evidence). */
 export interface ComparisonSection extends SectionBase, SectionVisibility {
+  eyebrow?: string;
+  description?: string;
+  product: ComparisonSide;
+  alternative: ComparisonSide;
   rows: ComparisonRow[];
+  /** Quiet footer note inside the comparison panel. */
+  note?: string;
 }
 
 export interface ComparisonRow {
-  aspect: string;
-  product: string;
-  alternative: string;
+  id: string;
+  label: string;
+  helper?: string;
+  /** Semantic icon key resolved by the Comparison section (e.g. `tools`). */
+  icon?: string;
+  productValue: string;
+  alternativeValue: string;
 }
 
 /** Section 7 — Reviews: social proof (Trust) */
@@ -105,10 +121,8 @@ export interface ProductPageSections {
   hero: HeroSection;
   problem: ProblemSection;
   productNarrative: ProductNarrativeSection;
-  /** Omit or set `enabled: false` when the product has no outcome benefits block. */
-  benefits?: BenefitsSection;
-  /** Omit or set `enabled: false` when the product has no meaningful comparison. */
-  comparison?: ComparisonSection;
+  /** Omit or set `null` when the product has no meaningful alternative workflow. */
+  comparison?: ComparisonSection | null;
   reviews: ReviewsSection;
   faq: FaqSection;
   purchase: PurchaseSection;

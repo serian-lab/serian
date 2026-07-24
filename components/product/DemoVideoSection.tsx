@@ -42,7 +42,7 @@ export function DemoVideoSection({ content }: DemoVideoSectionProps) {
       aria-label="Product demonstration"
       className="product-section product-section--narrative product-demo-section"
     >
-      <Container width="content">
+      <Container width="wide">
         <div className="product-demo">
           <div className="product-demo__frame">
             <div className="product-demo__header">

@@ -5,8 +5,8 @@ import { useEffect, useRef, type RefObject } from "react";
 /** Copies of the chapter strip — user stays in the middle band. */
 export const NARRATIVE_LOOP_COPIES = 3;
 
-const DEFAULT_SIDE_SCALE = 0.88;
-const DEFAULT_SIDE_OPACITY = 0.48;
+const DEFAULT_SIDE_SCALE = 0.9;
+const DEFAULT_SIDE_OPACITY = 0.58;
 
 /**
  * Settle physics — slightly overdamped spring (px/s units).

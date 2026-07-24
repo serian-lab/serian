@@ -1,4 +1,3 @@
-export { BenefitsSection } from "./BenefitsSection";
 export { ComparisonSection } from "./ComparisonSection";
 export { FaqSection } from "./FaqSection";
 export { ProductNarrativeSection } from "./ProductNarrativeSection";
@@ -7,3 +6,5 @@ export { ProblemSection } from "./ProblemSection";
 export { ProductPage } from "./ProductPage";
 export { PurchaseSection } from "./PurchaseSection";
 export { ReviewsSection } from "./ReviewsSection";
+export { UgcShowcaseSection } from "./UgcShowcaseSection";
+export { UgcVideoCard } from "./UgcVideoCard";

@@ -6,34 +6,36 @@ import { useSectionReveal } from "./useSectionReveal";
 
 const COMPARISON_SECTION_SELECTOR = "#comparison";
 
-/** Calm section enter — single container fade-up for rational reading. */
-const CONTAINER_DURATION = 0.8;
-const CONTAINER_Y = 20;
+/** Calm section enter — header then panel, no row stagger. */
+const CONTAINER_DURATION = 0.7;
+const CONTAINER_Y = 16;
+const PANEL_STAGGER = 0.1;
 
 function getComparisonTargets(root: HTMLElement): HTMLElement[] {
-  const container = root.querySelector<HTMLElement>(".product-comparison-enter");
-  return container ? [container] : [];
+  const header = root.querySelector<HTMLElement>(".product-comparison__header");
+  const panel = root.querySelector<HTMLElement>(".product-comparison__panel");
+  return [header, panel].filter((el): el is HTMLElement => Boolean(el));
 }
 
 /**
- * Comparison scroll reveal — one timeline, one tween, one ScrollTrigger.
- * Table stays still; no row/cell stagger.
+ * Comparison scroll reveal — header + panel fade-up only.
  */
 export function useComparisonReveal() {
   useSectionReveal(
     COMPARISON_SECTION_SELECTOR,
     ({ root, tl }) => {
-      const container = root.querySelector<HTMLElement>(".product-comparison-enter");
+      const targets = getComparisonTargets(root);
 
-      if (!container) {
+      if (targets.length === 0) {
         return;
       }
 
-      tl.from(container, {
+      tl.from(targets, {
         autoAlpha: 0,
         y: CONTAINER_Y,
         duration: CONTAINER_DURATION,
         ease: motionTokens.ease.out,
+        stagger: PANEL_STAGGER,
       });
     },
     {

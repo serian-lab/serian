@@ -19,6 +19,7 @@ export type {
   ProductMediaAsset,
   ProductMediaAssets,
   ProductMediaKit,
+  UgcShowcaseCta,
   UgcShowcaseMedia,
   UgcVideoItem,
   UgcVideoStyle,
@@ -28,9 +29,9 @@ export type {
 export { isVideoMediaAsset } from "./media";
 
 export type {
-  BenefitsSection,
   ComparisonRow,
   ComparisonSection,
+  ComparisonSide,
   FaqItem,
   FaqSection,
   HeroSection,

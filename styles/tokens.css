@@ -73,6 +73,11 @@
   /* ── Accent & interactive ── */
   --color-accent: var(--color-wood-600);
   --color-accent-hover: var(--color-wood-700);
+  /* Soft accent wash for decision emphasis (product column / icon wells). */
+  --color-accent-subtle: color-mix(in srgb, var(--color-accent) 9%, var(--color-surface-primary));
+  --color-accent-border: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  --color-on-accent: var(--color-text-inverse);
+  --color-surface-secondary: var(--color-surface-elevated);
   --color-interactive-bg: var(--color-accent);
   --color-interactive-bg-hover: var(--color-accent-hover);
   --color-interactive-text: var(--color-text-inverse);

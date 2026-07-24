@@ -2,8 +2,8 @@
 
 import { useId, useMemo, useRef, useState } from "react";
 
-import { Container, Heading, Section, Stack, Text } from "@/components/ui";
-import { ProductMedia, ProductSectionHeader } from "@/components/product/shared";
+import { Container, Heading, Section, Text } from "@/components/ui";
+import { ProductMedia } from "@/components/product/shared";
 import {
   NARRATIVE_LOOP_COPIES,
   useNarrativeTrack,
@@ -29,24 +29,44 @@ function resolveChapterImage(
   return narrativeMedia?.find((item) => item.id === chapterId)?.image ?? fallback;
 }
 
+function chapterTopicLabel(chapter: NarrativeChapter) {
+  if (chapter.eyebrow) {
+    return chapter.eyebrow;
+  }
+
+  return chapter.title.trim().toUpperCase();
+}
+
 type StoryCardProps = {
   chapter: NarrativeChapter;
   image?: ImageMediaAsset;
+  /** 1-based index within the logical chapter set. */
+  index: number;
 };
 
 /** Visual-only card. Never focusable / clickable for navigation. */
-function StoryCard({ chapter, image }: StoryCardProps) {
+function StoryCard({ chapter, image, index }: StoryCardProps) {
+  const topic = chapterTopicLabel(chapter);
+
   return (
     <article
       className="product-narrative__card"
       aria-roledescription="slide"
       aria-label={chapter.title}
     >
+      <header className="product-narrative__card-header">
+        <span className="product-narrative__card-index" aria-hidden="true">
+          {String(index).padStart(2, "0")}
+        </span>
+        <span className="product-narrative__card-eyebrow">{topic}</span>
+      </header>
+
       {image ? (
         <div className="product-narrative__media">
           <ProductMedia asset={image} variant="narrative" />
         </div>
       ) : null}
+
       <div className="product-narrative__copy">
         <Heading level={3} variant="title" className="product-narrative__title">
           {chapter.title}
@@ -107,17 +127,19 @@ export function ProductNarrativeSection({
       aria-label="A closer look"
       className="product-section product-narrative"
     >
-      <Container width="content">
-        <Stack gap="xl" className="product-narrative__frame">
+      <Container width="wide">
+        <div className="product-narrative__frame">
           <header className="product-narrative__header">
             {content.eyebrow ? (
               <Text as="p" variant="label" className="product-narrative__eyebrow">
                 {content.eyebrow}
               </Text>
             ) : null}
-            <ProductSectionHeader headline={content.headline} />
+            <Heading level={2} variant="heading" className="product-narrative__headline">
+              {content.headline}
+            </Heading>
             {content.introduction ? (
-              <Text className="product-section-intro product-narrative__intro">
+              <Text className="product-narrative__intro ui-text--lead">
                 {content.introduction}
               </Text>
             ) : null}
@@ -146,19 +168,21 @@ export function ProductNarrativeSection({
                     chapter.image,
                   );
                   const copy = Math.floor(index / count);
+                  const logicalIndex = (index % count) + 1;
 
                   return (
                     <StoryCard
                       key={`${copy}-${chapter.id}-${index}`}
                       chapter={chapter}
                       image={image}
+                      index={logicalIndex}
                     />
                   );
                 })}
               </div>
             </div>
           </div>
-        </Stack>
+        </div>
       </Container>
     </Section>
   );

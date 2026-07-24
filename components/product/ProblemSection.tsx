@@ -20,7 +20,7 @@ export function ProblemSection({ content }: ProblemSectionProps) {
         aria-label="Problem"
         className="product-section product-section--story serian-i06-problem"
       >
-        <Container width="content">
+        <Container width="wide">
           <div className="serian-i06-problem__frame">
             <div className="serian-i06-problem__intro-block problem-intro">
               <Text as="p" variant="label" className="serian-i06-section-index">

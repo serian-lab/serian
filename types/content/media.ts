@@ -69,14 +69,28 @@ export interface UgcVideoItem {
   id: string;
   title: string;
   caption?: string;
+  creator?: string;
+  ariaLabel?: string;
   style?: UgcVideoStyle;
+  /** Bound video asset — keep existing public paths; poster optional at runtime via fallback. */
   video: VideoMediaAsset;
 }
 
+export interface UgcShowcaseCta {
+  label: string;
+  href: string;
+}
+
+/** Optional UGC showcase — omit or disable when a product has no short-form clips. */
 export interface UgcShowcaseMedia extends SectionVisibility {
+  eyebrow?: string;
   headline: string;
+  description?: string;
+  /** @deprecated Prefer `description`. */
   subheadline?: string;
   items: UgcVideoItem[];
+  cta?: UgcShowcaseCta;
+  disclaimer?: string;
 }
 
 /** Shared static assets referenced outside dedicated sections. */

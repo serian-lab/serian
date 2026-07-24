@@ -1,5 +1,4 @@
 import type {
-  BenefitsSection,
   ComparisonSection,
   ProblemSection,
   ProductNarrativeSection,
@@ -44,30 +43,35 @@ export const productNarrative: ProductNarrativeSection = {
   chapters: [
     {
       id: "the-shape",
+      eyebrow: "THE SHAPE",
       title: "The Shape",
       body:
         "We chose an oval barrel rather than a round one. A round barrel curls evenly in every direction. An oval barrel creates bend where you want volume and keeps the ends from curling more than you intend.",
     },
     {
       id: "the-control",
+      eyebrow: "THE CONTROL",
       title: "The Control",
       body:
         "Three heat and airflow settings — not five. Enough range for fine hair, everyday use, and thicker sections. Fewer settings mean less second-guessing before your coffee cools.",
     },
     {
       id: "the-balance",
+      eyebrow: "THE BALANCE",
       title: "The Balance",
       body:
         "Under one pound, deliberately. A styling session should not feel like an arm workout. The weight sits toward the handle so the barrel feels light as you work through each section.",
     },
     {
       id: "the-finish",
+      eyebrow: "THE FINISH",
       title: "The Finish",
       body:
         "A cool tip you can hold. Styling close to the scalp means your fingers are never far from heat. The insulated tip gives you a place to rotate and guide without thinking about distance.",
     },
     {
       id: "the-detail",
+      eyebrow: "THE DETAIL",
       title: "The Detail",
       body:
         "A cord that moves with you. The swivel base follows your path from one side to the other — less tangling when you switch hands or reach the back.",
@@ -75,58 +79,68 @@ export const productNarrative: ProductNarrativeSection = {
   ],
 };
 
-export const benefits: BenefitsSection = {
-  id: "benefits",
-  headline: "What changes in your routine",
-  enabled: true,
-  benefits: [
-    {
-      title: "Less time between shower and door",
-      description:
-        "Combining drying and shaping into one step removes the back-and-forth between tools, which many people find saves meaningful time on busy mornings.",
-    },
-    {
-      title: "A more predictable finish",
-      description:
-        "When each section is dried with tension applied, hair tends to lay smoother and with more intentional shape than air-only drying alone.",
-    },
-    {
-      title: "Easier to repeat the same look",
-      description:
-        "A consistent tool and section-by-section method makes it simpler to reproduce a result you liked yesterday, not just on a good hair day.",
-    },
-  ],
-};
-
 export const comparison: ComparisonSection = {
   id: "comparison",
-  headline: "How it compares to common alternatives",
   enabled: true,
+  eyebrow: "A simpler routine",
+  headline: "How it compares to a dryer and round brush",
+  description:
+    "See how a single styling tool changes the number of tools, movements, and decisions involved in your routine.",
+  product: {
+    label: "SERIAN",
+    sublabel: "Hot Air Brush",
+    image: {
+      src: "/products/hair-dryer-brush/hero/hero-01.svg",
+      alt: "Serian Hot Air Brush — product view",
+      width: 480,
+      height: 480,
+    },
+  },
+  alternative: {
+    label: "Dryer +",
+    sublabel: "Round Brush",
+  },
   rows: [
     {
-      aspect: "Tools required",
-      product: "One hot air brush",
-      alternative: "Separate dryer and round brush",
+      id: "tools",
+      label: "Tools required",
+      helper: "What you need to get started",
+      icon: "tools",
+      productValue: "One tool",
+      alternativeValue: "Two separate tools",
     },
     {
-      aspect: "Styling while drying",
-      product: "Yes — tension and heat together",
-      alternative: "Usually two separate steps",
+      id: "workflow",
+      label: "Workflow",
+      helper: "How the routine is completed",
+      icon: "workflow",
+      productValue: "Dry and shape in one pass",
+      alternativeValue: "Coordinate drying and brushing",
     },
     {
-      aspect: "Learning curve",
-      product: "Section-by-section gliding",
-      alternative: "Varies with brush technique and dryer angle",
+      id: "learning",
+      label: "Learning curve",
+      helper: "How much technique it asks for",
+      icon: "learning",
+      productValue: "Section-by-section gliding",
+      alternativeValue: "Balance brush tension, dryer angle, and airflow",
     },
     {
-      aspect: "Root volume",
-      product: "Oval barrel lifts at the root",
-      alternative: "Depends on brush size and timing",
+      id: "repeatability",
+      label: "Repeatability",
+      helper: "How consistent the movement is",
+      icon: "repeat",
+      productValue: "One repeatable movement",
+      alternativeValue: "More dependent on timing and coordination",
     },
     {
-      aspect: "Travel packing",
-      product: "One item in your bag",
-      alternative: "Two items plus attachments",
+      id: "packing",
+      label: "Packing",
+      helper: "What you carry",
+      icon: "packing",
+      productValue: "One device",
+      alternativeValue: "Dryer, brush, and possible attachments",
     },
   ],
+  note: "A one-tool routine designed to reduce switching, coordination, and guesswork.",
 };

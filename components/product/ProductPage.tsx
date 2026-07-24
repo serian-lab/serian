@@ -2,7 +2,6 @@ import type { ProductPageContent } from "@/types/content";
 
 import { LayoutDebugRegion } from "@/components/layout/LayoutDebugRegion";
 
-import { BenefitsSection } from "./BenefitsSection";
 import { ComparisonSection } from "./ComparisonSection";
 import { DemoVideoSection } from "./DemoVideoSection";
 import { FaqSection } from "./FaqSection";
@@ -48,21 +47,18 @@ export function ProductPage({ product }: ProductPageProps) {
           narrativeMedia={mediaKit.narrative}
         />
       </LayoutDebugRegion>
-      {sections.benefits?.enabled && (
-        <LayoutDebugRegion label="BENEFITS" order={6}>
-          <BenefitsSection content={sections.benefits} />
-        </LayoutDebugRegion>
-      )}
-      {sections.comparison?.enabled && (
-        <LayoutDebugRegion label="COMPARISON" order={7}>
+      {sections.comparison?.enabled ? (
+        <LayoutDebugRegion label="COMPARISON" order={6}>
           <ComparisonSection content={sections.comparison} />
         </LayoutDebugRegion>
-      )}
-      {mediaKit.ugc && (
-        <LayoutDebugRegion label="UGC">
+      ) : null}
+      {mediaKit.ugc &&
+      mediaKit.ugc.enabled !== false &&
+      mediaKit.ugc.items.length > 0 ? (
+        <LayoutDebugRegion label="UGC" order={7}>
           <UgcShowcaseSection content={mediaKit.ugc} />
         </LayoutDebugRegion>
-      )}
+      ) : null}
       <LayoutDebugRegion label="REVIEWS" order={8}>
         <ReviewsSection content={sections.reviews} />
       </LayoutDebugRegion>

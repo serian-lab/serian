@@ -937,7 +937,7 @@
 .product-demo__media {
   position: relative;
   width: 100%;
-  max-width: 70rem;
+  max-width: calc(var(--layout-wide-width) - 4rem);
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: var(--radius-media);

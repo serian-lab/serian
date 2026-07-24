@@ -19,6 +19,10 @@
   max-width: var(--layout-reading-width);
 }
 
+.ui-container--wide {
+  max-width: var(--layout-wide-width);
+}
+
 /* ── Section ── */
 .ui-section {
   padding-block: var(--layout-section-spacing-y);

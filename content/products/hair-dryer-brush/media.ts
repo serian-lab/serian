@@ -203,8 +203,12 @@ export const mediaKit: ProductMediaKit = {
   },
   ugc: {
     enabled: true,
+    eyebrow: "Real routines",
     headline: "Real mornings, real results",
-    subheadline: "Short clips from customers using the brush in their daily routine",
+    description:
+      "Short clips from customers using the brush in their daily routine.",
+    disclaimer:
+      "Temporary demonstration media. Final customer videos will replace these placeholders.",
     items: [
       {
         id: "ugc-morning",

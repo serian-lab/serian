@@ -3,10 +3,12 @@
  */
 
 :root {
-  --layout-page-max-width: 72rem;
-  --layout-content-width: 60rem;
   --layout-reading-width: 38rem;
-  --layout-container-padding-x: var(--spacing-md);
+  --layout-content-width: 60rem;
+  --layout-page-max-width: 72rem;
+  --layout-wide-width: 84rem;
+  /* Literals: Tailwind v4 clears --spacing-* used by container gutters. */
+  --layout-container-padding-x: 1rem;
   --layout-section-spacing-y: clamp(2.5rem, 5vw, 3.5rem);
   --layout-section-spacing-y-compact: clamp(2rem, 4vw, 2.75rem);
   --layout-section-spacing-y-tight: clamp(1.75rem, 3.5vw, 2.5rem);
@@ -21,7 +23,6 @@
   --layout-product-split-column-ratio: 0.95fr;
   --layout-product-hero-max-height: 22rem;
   --layout-media-thumbnail-size: 4.5rem;
-  --layout-comparison-table-min-width: 28rem;
   --layout-touch-target-min: 2.75rem;
   --layout-media-hero-aspect: 5 / 4;
   --layout-media-feature-aspect: 4 / 3;
@@ -37,6 +38,6 @@
 
 @media (min-width: 48rem) {
   :root {
-    --layout-container-padding-x: var(--spacing-xl);
+    --layout-container-padding-x: 2rem;
   }
 }

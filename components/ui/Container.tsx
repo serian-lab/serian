@@ -2,7 +2,7 @@ import type { ElementType, HTMLAttributes, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-type ContainerWidth = "page" | "content" | "reading";
+type ContainerWidth = "page" | "content" | "reading" | "wide";
 
 type ContainerProps<T extends ElementType = "div"> = {
   as?: T;
@@ -14,6 +14,7 @@ const widthClass: Record<ContainerWidth, string | undefined> = {
   page: undefined,
   content: "ui-container--content",
   reading: "ui-container--reading",
+  wide: "ui-container--wide",
 };
 
 /** Constrains page content to a consistent horizontal boundary. */
